@@ -1,0 +1,28 @@
+# Synthesis for doorbell_chip (core + pad ring). Follows the reference flow:
+# map against the MAX corner, flatten, tie cells, buffers on assigns.
+read_verilog -sv rtl/doorbell.v
+read_verilog -sv rtl/doorbell_chip.v
+
+# Library cells and pads as blackboxes (correct pin directions)
+read_liberty -lib libs/cp8d_core_max.clean.lib
+read_liberty -lib libs/cp8d_pads_max.clean.lib
+
+hierarchy -check -top doorbell_chip
+
+# Power pads have only inout pins and would be removed as unused
+setattr -set keep 1 t:PVDD01 t:PVSS01
+
+synth -top doorbell_chip -flatten -noabc
+dfflibmap -liberty libs/cp8d_core_max.clean.lib
+abc -liberty libs/cp8d_core_max.clean.lib -D 200000
+opt_clean
+
+setundef -zero
+hilomap -singleton -hicell VDDCON TIEHI -locell VSSCON TIELO
+splitnets
+insbuf -buf BUFF00 IN1 OUT1
+opt_clean -purge
+check -assert
+
+tee -o reports/synthesis_stat.txt stat -liberty libs/cp8d_core_max.clean.lib -liberty libs/cp8d_pads_max.clean.lib
+write_verilog -noattr -noexpr -nohex -nodec results/mapped.v

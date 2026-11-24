@@ -1,0 +1,2 @@
+DRC: FAIL or no report - read verify/drc_summary.txt and verify/klayout_drc.log
+LVS: FAIL (netlists do not match)

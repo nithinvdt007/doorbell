@@ -1,0 +1,19 @@
+# SCL CP8D PDK/reference data is external and redistribution-restricted.
+/libs/
+/frame/
+/gds/layer.map
+/gds/route.streamout.def
+
+# Generated physical databases and layouts contain PDK cell geometry.
+/results/
+/verify/**/*.gds
+/verify/**/*.lvsdb
+/verify/**/*.cdl
+/verify/**/*.cir
+/verify/**/core_iolib_cp8d.cdl
+
+# Local tool outputs that may contain extracted PDK cell/layout data.
+/verify/quick/
+/verify/routepass1/
+/verify/preroute/
+/verify/pre_route/

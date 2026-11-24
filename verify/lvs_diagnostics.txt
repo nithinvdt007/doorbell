@@ -1,0 +1,84 @@
+circuits in cross reference: 32
+circuit  layout=ADNR00             schematic=ADNR00             Match
+circuit  layout=AND200             schematic=AND200             Match
+circuit  layout=AND300             schematic=AND300             Match
+circuit  layout=AND400             schematic=AND400             Match
+circuit  layout=AND500             schematic=AND500             Match
+circuit  layout=AOI400             schematic=AOI400             Match
+circuit  layout=BUFF00             schematic=BUFF00             Match
+circuit  layout=DFCL11             schematic=DFCL11             Match
+circuit  layout=INVR00             schematic=INVR00             Match
+circuit  layout=MX2100             schematic=MX2100             Match
+circuit  layout=NND200             schematic=NND200             Match
+circuit  layout=NND300             schematic=NND300             Match
+circuit  layout=NND400             schematic=NND400             Match
+circuit  layout=NND500             schematic=NND500             Match
+circuit  layout=NND600             schematic=NND600             Match
+circuit  layout=NOR200             schematic=NOR200             Match
+circuit  layout=NOR300             schematic=NOR300             Match
+circuit  layout=NOR400             schematic=NOR400             Match
+circuit  layout=NOR500             schematic=NOR500             Match
+circuit  layout=NOR600             schematic=NOR600             Match
+circuit  layout=OAI400             schematic=OAI400             Match
+circuit  layout=OR2100             schematic=OR2100             Match
+circuit  layout=OR3100             schematic=OR3100             Match
+circuit  layout=OR4100             schematic=OR4100             Match
+circuit  layout=ORND00             schematic=ORND00             Match
+circuit  layout=OTPD01             schematic=OTPD01             Match
+circuit  layout=PVDD01             schematic=PVDD01             Match
+circuit  layout=PVSS01             schematic=PVSS01             Match
+circuit  layout=SPAD00             schematic=SPAD00             Match
+circuit  layout=XNR200             schematic=XNR200             Match
+circuit  layout=XOR200             schematic=XOR200             Match
+circuit  layout=doorbell_chip      schematic=DOORBELL_CHIP      NoMatch
+
+== circuit doorbell_chip (NoMatch) ==
+pins: 14 total, 0 not matched
+nets: 526 total, 5 not matched
+   layout $210                               schematic -                                  Mismatch
+   layout $227                               schematic -                                  Mismatch
+   layout $472                               schematic -                                  Mismatch
+   layout $482                               schematic -                                  Mismatch
+   layout VDD                                schematic VDD                                Mismatch
+devices: 0 total, 0 not matched
+subcircuits: 458 total, 63 not matched
+   layout -                                  schematic _543_                              Mismatch
+   layout -                                  schematic CLKBUF_4_2_0_CLK_C                 Mismatch
+   layout -                                  schematic CLKBUF_5_12_0_CLK_C                Mismatch
+   layout -                                  schematic _676_                              Mismatch
+   layout -                                  schematic _531_                              Mismatch
+   layout -                                  schematic _538_                              Mismatch
+   layout -                                  schematic _534_                              Mismatch
+   layout -                                  schematic _480_                              Mismatch
+   layout -                                  schematic _467_                              Mismatch
+   layout $426                               schematic -                                  Mismatch
+   layout $444                               schematic _625_                              Mismatch
+   layout $443                               schematic _629_                              Mismatch
+   layout $417                               schematic _536_                              Mismatch
+   layout $416                               schematic _529_                              Mismatch
+   layout $411                               schematic _649_                              Mismatch
+   layout $423                               schematic -                                  Mismatch
+   layout $424                               schematic -                                  Mismatch
+   layout $425                               schematic CLKBUF_4_3_0_CLK_C                 Mismatch
+   layout $433                               schematic CLKBUF_5_13_0_CLK_C                Mismatch
+   layout $430                               schematic CLKBUF_5_14_0_CLK_C                Mismatch
+   layout $434                               schematic CLKBUF_5_15_0_CLK_C                Mismatch
+   layout $427                               schematic CLKBUF_5_4_0_CLK_C                 Mismatch
+   layout $436                               schematic CLKBUF_5_5_0_CLK_C                 Mismatch
+   layout $438                               schematic CLKBUF_5_6_0_CLK_C                 Mismatch
+   layout $439                               schematic CLKBUF_5_7_0_CLK_C                 Mismatch
+   layout $402                               schematic -                                  Mismatch
+   layout $403                               schematic _674_                              Mismatch
+   layout $410                               schematic _685_                              Mismatch
+   layout $405                               schematic _687_                              Mismatch
+   layout $408                               schematic _688_                              Mismatch
+   layout $397                               schematic _698_                              Mismatch
+   layout $407                               schematic _708_                              Mismatch
+   layout $400                               schematic _709_                              Mismatch
+   layout $399                               schematic _711_                              Mismatch
+   layout $409                               schematic _713_                              Mismatch
+   layout $401                               schematic _716_                              Mismatch
+   layout $404                               schematic _742_                              Mismatch
+   layout $406                               schematic _744_                              Mismatch
+   layout $440                               schematic -                                  Mismatch
+   layout $441                               schematic -                                  Mismatch

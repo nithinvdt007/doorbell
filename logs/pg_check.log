@@ -1,0 +1,9 @@
+[ERROR PSM-0025] VDD does not contain any terminals
+PG_CHECK_FAIL VDD: PSM-0025
+[ERROR PSM-0025] GROUND does not contain any terminals
+PG_CHECK_FAIL GROUND: PSM-0025
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+[ERROR PSM-0010] LU factorization of the G Matrix failed. SparseLU solver message: THE MATRIX IS STRUCTURALLY SINGULAR ... ZERO COLUMN AT 51.
+PG_ANALYZE_FAIL VDD: PSM-0010
+PG_CHECK_DONE

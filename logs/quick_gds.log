@@ -1,0 +1,6 @@
+Warning: FOREIGN name SPAD00 differs from MACRO ASPAD00 (line=5434, cell=ASPAD00, file=pads_cp8d.lef)
+Warning: No mapping for purpose 'OUTLINE' - layer is ignored (line=6, cell=, file=route.streamout.def)
+Warning: No mapping for layer 'via', purpose 'BLK' - layer is ignored (line=1458, cell=, file=route.streamout.def)
+Streamout: normalized 0 internal flush bends
+Streamout: converted 4873 wire paths to 4873 rectangles
+GDS written: /home/nithinvdt001/ASIC_Projects/doorbell_v3_rebuild_20261124/results/quick_unframed.gds

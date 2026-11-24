@@ -1,0 +1,8 @@
+# Die/core geometry in um. These values produced a clean detailed route in the
+# old flow (cells fill about 57% of the rows that remain after every other row
+# is removed). If routing does not converge, enlarge the die, for example
+#   DIE 2300, CORE 360..1940.
+set DIE_W   1800
+set DIE_H   1800
+set CORE_LO 360
+set CORE_HI 1440

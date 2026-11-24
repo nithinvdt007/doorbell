@@ -1,0 +1,495 @@
+[INFO ORD-0030] Using 4 thread(s).
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       520
+       10 |     +0.0% |       0 |       0 |             0 |       510
+       20 |     +0.0% |       0 |       0 |             0 |       500
+       30 |     +0.0% |       0 |       0 |             0 |       490
+       40 |     +0.0% |       0 |       0 |             0 |       480
+       50 |     +0.0% |       0 |       0 |             0 |       470
+       60 |     +0.0% |       0 |       0 |             0 |       460
+       70 |     +0.0% |       0 |       0 |             0 |       450
+       80 |     +0.0% |       0 |       0 |             0 |       440
+       90 |     +0.0% |       0 |       0 |             0 |       430
+      100 |     +0.0% |       0 |       0 |             0 |       420
+      110 |     +0.0% |       0 |       0 |             0 |       410
+      120 |     +0.0% |       0 |       0 |             0 |       400
+      130 |     +0.0% |       0 |       0 |             0 |       390
+      140 |     +0.0% |       0 |       0 |             0 |       380
+      150 |     +0.0% |       0 |       0 |             0 |       370
+      160 |     +0.0% |       0 |       0 |             0 |       360
+      170 |     +0.0% |       0 |       0 |             0 |       350
+      180 |     +0.0% |       0 |       0 |             0 |       340
+      190 |     +0.0% |       0 |       0 |             0 |       330
+      200 |     +0.0% |       0 |       0 |             0 |       320
+      210 |     +0.0% |       0 |       0 |             0 |       310
+      220 |     +0.0% |       0 |       0 |             0 |       300
+      230 |     +0.0% |       0 |       0 |             0 |       290
+      240 |     +0.0% |       0 |       0 |             0 |       280
+      250 |     +0.0% |       0 |       0 |             0 |       270
+      260 |     +0.0% |       0 |       0 |             0 |       260
+      270 |     +0.0% |       0 |       0 |             0 |       250
+      280 |     +0.0% |       0 |       0 |             0 |       240
+      290 |     +0.0% |       0 |       0 |             0 |       230
+      300 |     +0.0% |       0 |       0 |             0 |       220
+      310 |     +0.0% |       0 |       0 |             0 |       210
+      320 |     +0.0% |       0 |       0 |             0 |       200
+      330 |     +0.0% |       0 |       0 |             0 |       190
+      340 |     +0.0% |       0 |       0 |             0 |       180
+      350 |     +0.0% |       0 |       0 |             0 |       170
+      360 |     +0.0% |       0 |       0 |             0 |       160
+      370 |     +0.0% |       0 |       0 |             0 |       150
+      380 |     +0.0% |       0 |       0 |             0 |       140
+      390 |     +0.0% |       0 |       0 |             0 |       130
+      400 |     +0.0% |       0 |       0 |             0 |       120
+      410 |     +0.0% |       0 |       0 |             0 |       110
+      420 |     +0.0% |       0 |       0 |             0 |       100
+      430 |     +0.0% |       0 |       0 |             0 |        90
+      440 |     +0.0% |       0 |       0 |             0 |        80
+      450 |     +0.0% |       0 |       0 |             0 |        70
+      460 |     +0.0% |       0 |       0 |             0 |        60
+      470 |     +0.0% |       0 |       0 |             0 |        50
+      480 |     +0.0% |       0 |       0 |             0 |        40
+      490 |     +0.0% |       0 |       0 |             0 |        30
+      500 |     +0.0% |       0 |       0 |             0 |        20
+      510 |     +0.0% |       0 |       0 |             0 |        10
+      520 |     +1.8% |       0 |      74 |             1 |         0
+    final |     +1.8% |       0 |      74 |             1 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0035] Found 1 fanout violations.
+[INFO RSZ-0036] Found 1 capacitance violations.
+[INFO RSZ-0038] Inserted 74 buffers in 1 nets.
+[INFO RSZ-0504] Runtime: 0.06s
+[INFO DPL-0006] Core area: 3190373.55 um^2
+[INFO DPL-0007] Movable instances area: 1624450.81 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 50.9%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 1338 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        744 |       150 |       591
+        1 |       1043 |       184 |       847
+        2 |       1394 |       197 |      1155
+        3 |        957 |       177 |       756
+        4 |        963 |       178 |       755
+        5 |       1105 |       177 |       889
+        6 |       1370 |       190 |      1114
+        7 |       1268 |       205 |      1013
+        8 |       1222 |       196 |      1002
+        9 |       1329 |       208 |      1070
+       10 |       1236 |       207 |      1007
+       20 |       1406 |       230 |      1096
+       30 |       1259 |       236 |      1007
+       40 |       1196 |       260 |       912
+       50 |       1185 |       287 |       898
+       60 |       1294 |       301 |       993
+       70 |       1218 |       308 |       910
+       80 |       1348 |       306 |      1018
+       90 |       1405 |       301 |      1104
+      100 |       1351 |       306 |      1045
+      110 |       1271 |       325 |       946
+      120 |       1231 |       323 |       908
+      130 |       1295 |       321 |       974
+      140 |       1188 |       308 |       880
+      150 |       1158 |       296 |       862
+      160 |       1178 |       286 |       892
+      170 |       1172 |       296 |       876
+      180 |       1196 |       300 |       896
+      190 |       1227 |       283 |       944
+      200 |       1170 |       292 |       878
+      210 |       1193 |       327 |       866
+      220 |       1186 |       312 |       874
+      230 |       1137 |       325 |       812
+      240 |       1196 |       340 |       856
+      250 |       1262 |       344 |       918
+      260 |       1223 |       321 |       902
+      270 |       1183 |       311 |       872
+      280 |       1149 |       297 |       852
+      290 |       1189 |       319 |       867
+      300 |       1179 |       311 |       868
+      310 |       1157 |       319 |       838
+      320 |       1086 |       308 |       778
+      330 |       1181 |       303 |       878
+      340 |       1167 |       325 |       842
+      350 |       1164 |       318 |       846
+      360 |       1111 |       313 |       798
+      370 |       1190 |       294 |       896
+      380 |       1188 |       320 |       868
+      390 |       1212 |       306 |       906
+      399 |       1175 |       309 |       866
+Negotiation phase 2: isolation point active, 1000 iterations.
+      400 |       1283 |       309 |       974
+      410 |       1245 |       281 |       964
+      420 |       1180 |       284 |       896
+      430 |       1246 |       288 |       958
+      440 |       1213 |       277 |       936
+      450 |       1241 |       299 |       942
+      460 |       1108 |       294 |       814
+      470 |       1202 |       286 |       916
+      480 |       1137 |       279 |       858
+      490 |       1168 |       294 |       874
+      500 |       1133 |       295 |       838
+      510 |       1206 |       298 |       908
+      520 |       1159 |       301 |       858
+      530 |       1271 |       303 |       968
+      540 |       1215 |       327 |       888
+      550 |       1328 |       332 |       996
+      560 |       1315 |       345 |       970
+      570 |       1296 |       338 |       958
+      580 |       1283 |       351 |       932
+      590 |       1265 |       337 |       928
+      600 |       1189 |       367 |       822
+      610 |       1261 |       349 |       912
+      620 |       1220 |       342 |       878
+      630 |       1217 |       341 |       876
+      640 |       1167 |       341 |       826
+      650 |       1331 |       327 |      1004
+      660 |       1175 |       323 |       852
+      670 |       1287 |       331 |       956
+      680 |       1187 |       335 |       852
+      690 |       1207 |       321 |       886
+      700 |       1132 |       322 |       810
+      710 |       1211 |       331 |       880
+      720 |       1152 |       328 |       824
+      730 |       1157 |       331 |       826
+      740 |       1054 |       310 |       744
+      750 |       1122 |       314 |       808
+      760 |       1104 |       330 |       774
+      770 |       1162 |       334 |       828
+      780 |       1189 |       341 |       848
+      790 |       1148 |       340 |       808
+      800 |       1124 |       318 |       806
+      810 |       1200 |       304 |       896
+      820 |       1152 |       320 |       832
+      830 |       1179 |       321 |       858
+      840 |       1156 |       318 |       838
+      850 |       1195 |       319 |       876
+      860 |       1112 |       316 |       796
+      870 |       1173 |       319 |       854
+      880 |       1141 |       327 |       814
+      890 |       1225 |       327 |       898
+      900 |       1329 |       323 |      1006
+      910 |       1266 |       308 |       958
+      920 |       1270 |       314 |       956
+      930 |       1201 |       321 |       880
+      940 |       1268 |       334 |       934
+      950 |       1346 |       326 |      1020
+      960 |       1293 |       327 |       966
+      970 |       1348 |       328 |      1020
+      980 |       1206 |       340 |       866
+      990 |       1232 |       340 |       892
+     1000 |       1196 |       332 |       864
+     1010 |       1221 |       329 |       892
+     1020 |       1189 |       329 |       860
+     1030 |       1199 |       317 |       882
+     1040 |       1143 |       335 |       808
+     1050 |       1222 |       324 |       898
+     1060 |       1129 |       331 |       798
+     1070 |       1176 |       328 |       848
+     1080 |       1085 |       313 |       772
+     1090 |       1137 |       321 |       816
+     1100 |       1101 |       331 |       770
+     1110 |       1154 |       326 |       828
+     1120 |       1103 |       323 |       780
+     1130 |       1167 |       329 |       838
+     1140 |       1114 |       330 |       784
+     1150 |       1161 |       329 |       832
+     1160 |       1076 |       318 |       758
+     1170 |       1139 |       311 |       828
+     1180 |       1079 |       319 |       760
+     1190 |       1167 |       307 |       860
+     1200 |       1097 |       309 |       788
+     1210 |       1149 |       323 |       826
+     1220 |       1148 |       336 |       812
+     1230 |       1184 |       324 |       860
+     1240 |       1170 |       342 |       828
+     1250 |       1263 |       329 |       934
+     1260 |       1199 |       337 |       862
+     1270 |       1211 |       361 |       850
+     1280 |       1143 |       345 |       798
+     1290 |       1185 |       347 |       838
+     1300 |       1157 |       341 |       816
+     1310 |       1182 |       334 |       848
+     1320 |       1195 |       335 |       860
+     1330 |       1237 |       331 |       906
+     1340 |       1194 |       324 |       870
+     1350 |       1185 |       311 |       874
+     1360 |       1159 |       313 |       846
+     1370 |       1266 |       322 |       944
+     1380 |       1176 |       314 |       862
+     1390 |       1267 |       313 |       954
+     1399 |       1235 |       317 |       918
+[WARNING DPL-0701] NegotiationLegalizer did not fully converge. Violations remain: 317
+[INFO DPL-0500] Runtime: 22.29s
+Placement Analysis
+---------------------------------
+total displacement      56949.0 u
+average displacement       42.6 u
+max displacement          542.1 u
+original HPWL          111691.1 u
+legalized HPWL         147497.3 u
+delta HPWL                   32 %
+
+[INFO GRT-0009] rerouting 488 nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_0_clk_c
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_4_0_clk_c
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_0_0_clk_c
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_2_0_clk_c
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_6_0_clk_c
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_1_0_clk_c
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_7_0_clk_c
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_5_0_clk_c
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clknet_3_3_0_clk_c
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[WARNING GRT-0273] Disabled NDR (to reduce congestion) for net: clk_c
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+[INFO DPL-0006] Core area: 3190373.55 um^2
+[INFO DPL-0007] Movable instances area: 1624450.81 um^2
+[INFO DPL-0008] Fixed instances area within core: 0.00 um^2
+[INFO DPL-0009] Utilization: 50.9%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (1 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 1338 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       1235 |       317 |       918
+        1 |       1318 |       314 |       995
+        2 |       1948 |       293 |      1643
+        3 |       1832 |       282 |      1494
+        4 |       1727 |       293 |      1428
+        5 |       1834 |       318 |      1486
+        6 |       1819 |       289 |      1476
+        7 |       1852 |       308 |      1482
+        8 |       1528 |       306 |      1212
+        9 |       1729 |       315 |      1370
+       10 |       1531 |       295 |      1203
+       20 |       1501 |       313 |      1179
+       30 |       1525 |       323 |      1139
+       40 |       1585 |       345 |      1234
+       50 |       1192 |       324 |       868
+       60 |       1226 |       340 |       886
+       70 |       1318 |       332 |       983
+       80 |       1142 |       330 |       812
+       90 |       1277 |       327 |       950
+      100 |       1227 |       327 |       900
+      110 |       1220 |       326 |       894
+      120 |       1219 |       321 |       898
+      130 |       1281 |       335 |       943
+      140 |       1255 |       351 |       904
+      150 |       1170 |       332 |       838
+      160 |       1189 |       319 |       870
+      170 |       1219 |       315 |       904
+      180 |       1140 |       324 |       816
+      190 |       1150 |       314 |       836
+      200 |       1161 |       319 |       842
+      210 |       1170 |       306 |       864
+      220 |       1127 |       287 |       840
+      230 |       1221 |       301 |       920
+      240 |       1182 |       320 |       862
+      250 |       1152 |       318 |       834
+      260 |       1171 |       327 |       844
+      270 |       1137 |       327 |       810
+      280 |       1227 |       335 |       892
+      290 |       1168 |       304 |       864
+      300 |       1154 |       322 |       832
+      310 |       1169 |       297 |       872
+      320 |       1168 |       306 |       862
+      330 |       1224 |       314 |       910
+      340 |       1327 |       329 |       998
+      350 |       1368 |       336 |      1032
+      360 |       1135 |       331 |       804
+      370 |       1117 |       303 |       814
+      380 |       1263 |       307 |       956
+      390 |       1167 |       313 |       854
+      399 |       1138 |       322 |       816
+Negotiation phase 2: isolation point active, 1000 iterations.
+      400 |       1114 |       312 |       802
+      410 |       1134 |       306 |       828
+      420 |       1142 |       320 |       822
+      430 |       1183 |       309 |       874
+      440 |       1301 |       319 |       982
+      450 |       1225 |       315 |       910
+      460 |       1189 |       309 |       880
+      470 |       1146 |       294 |       852
+      480 |       1217 |       311 |       906
+      490 |       1228 |       326 |       902
+      500 |       1268 |       340 |       928
+      510 |       1243 |       331 |       912
+      520 |       1249 |       327 |       922
+      530 |       1203 |       311 |       892
+      540 |       1225 |       307 |       918
+      550 |       1244 |       310 |       934
+      560 |       1396 |       324 |      1072
+      570 |       1235 |       315 |       920
+      580 |       1222 |       332 |       890
+      590 |       1241 |       333 |       908
+      600 |       1176 |       340 |       836
+      610 |       1167 |       341 |       826
+      620 |       1161 |       335 |       826
+      630 |       1146 |       336 |       810
+      640 |       1118 |       352 |       766
+      650 |       1148 |       342 |       806
+      660 |       1156 |       356 |       800
+      670 |       1123 |       341 |       782
+      680 |       1223 |       337 |       886
+      690 |       1116 |       340 |       776
+      700 |       1110 |       334 |       776
+      710 |       1124 |       322 |       802
+      720 |       1110 |       330 |       780
+      730 |       1075 |       301 |       774
+      740 |       1084 |       314 |       770
+      750 |       1065 |       321 |       744
+      760 |       1052 |       308 |       744
+      770 |       1037 |       301 |       736
+      780 |       1042 |       306 |       736
+      790 |       1117 |       299 |       818
+      800 |       1121 |       301 |       820
+      810 |       1089 |       291 |       798
+      820 |       1084 |       294 |       790
+      830 |       1069 |       295 |       774
+      840 |       1070 |       296 |       774
+      850 |       1085 |       301 |       784
+      860 |       1083 |       309 |       774
+      870 |       1119 |       295 |       824
+      880 |       1188 |       306 |       882
+      890 |       1224 |       322 |       902
+      900 |       1313 |       319 |       994
+      910 |       1294 |       316 |       978
+      920 |       1148 |       306 |       842
+      930 |       1148 |       310 |       838
+      940 |       1240 |       312 |       928
+      950 |       1133 |       313 |       820
+      960 |       1154 |       324 |       830
+      970 |       1259 |       329 |       930
+      980 |       1267 |       337 |       930
+      990 |       1174 |       330 |       844
+     1000 |       1115 |       331 |       784
+     1010 |       1132 |       320 |       812
+     1020 |       1230 |       326 |       904
+     1030 |       1134 |       326 |       808
+     1040 |       1126 |       326 |       800
+     1050 |       1251 |       331 |       920
+     1060 |       1164 |       326 |       838
+     1070 |       1158 |       314 |       844
+     1080 |       1148 |       308 |       840
+     1090 |       1079 |       305 |       774
+     1100 |       1073 |       311 |       762
+     1110 |       1095 |       307 |       788
+     1120 |       1062 |       312 |       750
+     1130 |       1060 |       308 |       752
+     1140 |       1085 |       303 |       782
+     1150 |       1051 |       317 |       734
+     1160 |       1086 |       308 |       778
+     1170 |       1133 |       313 |       820
+     1180 |       1058 |       316 |       742
+     1190 |       1088 |       324 |       764
+     1200 |       1129 |       323 |       806
+     1210 |       1073 |       317 |       756
+     1220 |       1048 |       312 |       736
+     1230 |       1094 |       314 |       780
+     1240 |       1045 |       321 |       724
+     1250 |       1089 |       315 |       774
+     1260 |       1153 |       323 |       830
+     1270 |       1096 |       320 |       776
+     1280 |       1096 |       316 |       780
+     1290 |       1090 |       316 |       774
+     1300 |       1107 |       327 |       780
+     1310 |       1135 |       327 |       808
+     1320 |       1127 |       331 |       796
+     1330 |       1086 |       318 |       768
+     1340 |       1062 |       318 |       744
+     1350 |       1064 |       326 |       738
+     1360 |       1054 |       320 |       734
+     1370 |       1130 |       330 |       800
+     1380 |       1075 |       327 |       748
+     1390 |       1093 |       329 |       764
+     1399 |       1114 |       316 |       798
+[WARNING DPL-0701] NegotiationLegalizer did not fully converge. Violations remain: 316
+[INFO DPL-0500] Runtime: 21.59s
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 24
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+metal1           25223           714            2.83%             0 /  0 /  0
+metal2           27154          3694           13.60%             9 /  0 / 1414
+---------------------------------------------------------------------------------------
+Total            52377          4408            8.42%             9 /  0 / 1414
+
+[ERROR GRT-0232] Routing congestion too high. Check the congestion heatmap in the GUI.
+Error: retry.tcl, 44 GRT-0232

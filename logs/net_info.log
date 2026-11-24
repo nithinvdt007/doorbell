@@ -1,0 +1,13 @@
+VDD: bterms=0 iterms=1284 swires=1
+  iterm _9047dc24f9550000_p_odb__dbInst/_a08ab824f9550000_p_odb__dbMTerm
+  iterm _1047dc24f9550000_p_odb__dbInst/_8070b824f9550000_p_odb__dbMTerm
+  iterm _9046dc24f9550000_p_odb__dbInst/_7063b824f9550000_p_odb__dbMTerm
+  iterm _1046dc24f9550000_p_odb__dbInst/_5049b824f9550000_p_odb__dbMTerm
+  iterm _9045dc24f9550000_p_odb__dbInst/_5049b824f9550000_p_odb__dbMTerm
+GROUND: bterms=0 iterms=1284 swires=1
+  iterm _9047dc24f9550000_p_odb__dbInst/_088ab824f9550000_p_odb__dbMTerm
+  iterm _1047dc24f9550000_p_odb__dbInst/_e86fb824f9550000_p_odb__dbMTerm
+  iterm _9046dc24f9550000_p_odb__dbInst/_d862b824f9550000_p_odb__dbMTerm
+  iterm _1046dc24f9550000_p_odb__dbInst/_b848b824f9550000_p_odb__dbMTerm
+  iterm _9045dc24f9550000_p_odb__dbInst/_b848b824f9550000_p_odb__dbMTerm
+DONE

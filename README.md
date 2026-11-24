@@ -3,7 +3,7 @@
 > Current routed verification and continuation notes: [NEXT_AGENT_HANDOFF.md](NEXT_AGENT_HANDOFF.md). The latest baseline still fails SCL DRC/LVS; do not treat this project as signoff-ready.
 
 A clean restart of the flow, built from the scripts that worked in the first
-attempt plus the fixes found by reviewing it (see the mistake log document).
+attempt plus the fixes found by reviewing it (see SIGNOFF_HANDOFF.md and NEXT_AGENT_HANDOFF.md).
 Everything runs through one command: `./run.sh <stage>`. Each stage checks its
 inputs, writes `logs/<stage>.log`, and stops with the error if it fails.
 
@@ -94,4 +94,3 @@ Open items, none of which this flow can close by itself:
 3. **DRC.** The CTS quickcheck with the matched frame reports 0 violations, and OpenROAD detailed routing reports 0 markers. The full SCL deck still reports 4 minimum-metal2-width violations in the routed core (two local areas around x=1.34 mm and x=1.48 mm, y=1.47 mm).
 4. **Pad ring.** The 3 mm SCL frame's pad slots, corners, and supply polygons are used. The GDS merger validates the die size and rail coverage before adding frame labels and outline.
 5. **Tape-out requirements** (timing corners, hold margin, OCV, seal ring) are unconfirmed.
-
