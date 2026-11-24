@@ -6,6 +6,8 @@
 
 # Generated physical databases and layouts contain PDK cell geometry.
 /results/
+/deliverables/*.gds
+/deliverables/doorbell_chip_layout.png
 /verify/**/*.gds
 /verify/**/*.lvsdb
 /verify/**/*.cdl
@@ -17,3 +19,4 @@
 /verify/routepass1/
 /verify/preroute/
 /verify/pre_route/
+
