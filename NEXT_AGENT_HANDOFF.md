@@ -1,9 +1,16 @@
 # Doorbell CP8D: current investigation handoff
 
-Updated 2026-11-24. This file records the latest state of the copied workspace
+Updated 2026-11-25. This file records the latest state of the copied workspace
 `C:\Users\Admin\OneDrive\Documents\New project\doorbell_v3_rebuild_20261124`.
 
-## Current status
+> **RESOLVED later on 2026-11-24:** see `verify/SIGNOFF_FIX_NOTES.md`. The
+> promoted `results/doorbell_chip.gds` now passes SCL DRC (0 violations) and
+> full-chip LVS (`verify/status.txt`). The status text below is historical.
+> STA nominal and 2x wire-RC checks pass; the 4x sensitivity run has setup
+> violations. Pad locations remain constrained by the supplied frame and were
+> not changed. See `SIGNOFF_STATUS.md` for current evidence.
+
+## Current status (historical, before the fix)
 
 **Not signoff-ready.** The latest completed baseline run has zero OpenROAD detailed-route markers, but the framed GDS still fails SCL DRC and LVS:
 
@@ -84,3 +91,4 @@ An earlier unbounded attempt also failed to complete in reasonable time. The ori
 5. **Regenerate and run final checks for any accepted candidate:** export powered netlist from that exact ODB; stream its matching DEF; merge the frame; run `./run.sh verify`. Require zero SCL DRC violations and a passing full-chip LVS before signoff.
 
 Do not run multiple OpenROAD route processes against the same results directory. Candidate experiments should write separate outputs and leave `results/route.odb`, `results/route.def`, and `results/doorbell_chip.gds` unchanged until independently verified.
+
