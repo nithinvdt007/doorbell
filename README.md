@@ -9,7 +9,7 @@ Followable RTL-to-GDS project for the Doorbell ASIC. The flow uses external SCL 
 - SCL DRC: **PASS**, 0 rule violations.
 - Full-chip SCL LVS: **PASS**, extracted and schematic netlists match.
 - STA at assumed wire RC x1: setup and hold pass at both fast and slow corners.
-- Power-grid connectivity: PASS, no unconnected VDD or GROUND shapes; IR analysis completed for both nets.
+- Power-grid connectivity: **PASS**, no unconnected VDD or GROUND shapes; IR analysis completed for both nets.
 - Dynamic/leakage power was not estimated.
 
 See [reports/ppa_summary.md](reports/ppa_summary.md) for area, floorplan, placement, clock-tree, routing, x1 fast/slow timing, and limits. See [docs/FLOW_GUIDE.md](docs/FLOW_GUIDE.md) for the stage-by-stage calculations and commands. The measured signoff geometry edits are in [verify/SIGNOFF_FIX_NOTES.md](verify/SIGNOFF_FIX_NOTES.md).
@@ -60,5 +60,5 @@ The `.gitignore` excludes PDK libraries, ODB/DEF/GDS outputs, extracted circuits
 
 ## Local fabrication handoff
 
-The checked handoff is in the local FAB_HANDOFF directory. Its 30 packaged files match FAB_HANDOFF/SHA256SUMS.txt. The final framed GDS SHA-256 is 9562577bbee66d0ca9bab486826c6d92cadc9dd77a2aae82629cd3a8c2734035. The binary layout and extracted circuit files stay in that local package; the public repository keeps source, flow, summaries, and the visual screenshot.
+The checked handoff is in the local FAB_HANDOFF directory. All packaged files are listed in and verified against FAB_HANDOFF/SHA256SUMS.txt. The final framed GDS SHA-256 is 9562577bbee66d0ca9bab486826c6d92cadc9dd77a2aae82629cd3a8c2734035. The binary layout and extracted circuit files stay in that local package; the public repository keeps source, flow, summaries, and the visual screenshot.
 
