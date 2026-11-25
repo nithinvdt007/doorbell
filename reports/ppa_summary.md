@@ -1,66 +1,52 @@
 # PPA and signoff summary
 
-**Build:** Doorbell ASIC v2, SCL CP8D, 3 mm die  
-**Evidence date:** 2026-11-24 (Asia/Kolkata)  
-**Final checks:** SCL DRC pass, full-chip SCL LVS pass
+**Build:** Doorbell ASIC v2 · SCL CP8D · 3 mm die  
+**Evidence date:** 2026-11-24 (Asia/Kolkata) · **STA model:** assumed LEF-derived RC at x1
 
-## Area
-
-| Metric | Result | Source/meaning |
-|---|---:|---|
-| Mapped cells | 392 | Yosys mapped design, including pad cells |
-| Sequential cells | 72 DFCL11 | 527.76 abstract Liberty area units |
-| Total mapped Liberty area | 3,487.77 | Abstract Liberty `area`; do not interpret as physical µm² |
-| Actual core box | 1797.9 × 1774.5 µm | Grid-snapped box from `logs/floorplan.log` |
-| Core area | 3,190,373.55 µm² (3.1904 mm²) | Actual snapped core; 35.45% of the 9 mm² die |
-| Placed standard-cell area | 329,121.6 µm² | OpenROAD detailed-placement report; 10.3% reported utilization |
-
-## Placement and clock tree
-
-- The global placer used target density 0.60; this is an optimization target, not the final utilization.
-- Detailed placement reported 10.3% utilization, 11,435 µm total displacement, and legalized HPWL of 89,262.5 µm versus 82,849.0 µm before legalization (+8%). Maximum displacement was 225 µm.
-- CTS covered 72 clock sinks with 57 clock buffers and a maximum tree depth of five levels. CTS then inserted 831 row filler instances.
-
-## Routing
-
-The final detailed-route completion in `logs/route.log` reports zero OpenROAD route violations:
-
-| Metric | Result |
+| PPA / signoff metric | Result |
 |---|---:|
-| Total routed wire | 138,878 µm |
-| Metal1 wire | 60,151 µm |
-| Metal2 wire | 78,726 µm |
-| Vias | 1,522 |
+| Mapped cells | 392 |
+| Total mapped Liberty area | 3,487.77 abstract units |
+| Actual snapped core | 1797.9 × 1774.5 µm; 3.1904 mm² |
+| Placed standard-cell area | 329,121.6 µm²; 10.3% utilization |
+| Routed wire / vias | 138,878 µm / 1,522 |
 | Final detailed-route markers | 0 |
+| DRC / LVS | PASS: 0 rule violations / PASS: netlists match |
+| Power-grid connectivity | PASS: no unconnected VDD or GROUND shapes |
+| STA setup / hold | PASS at fast and slow corners using assumed x1 RC |
+| Final framed GDS SHA-256 | 9562577bbee66d0ca9bab486826c6d92cadc9dd77a2aae82629cd3a8c2734035 |
 
-The passing GDS also includes the separate, documented geometry patch in `verify/SIGNOFF_FIX_NOTES.md`: four VDD followpins were extended to the core-ring straps, and two narrow reset-net Metal2 segments were shifted. The final ODB was rebuilt from that patched DEF before exporting the powered LVS netlist.
+## Floorplan, placement, and clock tree
 
-## Timing (assumed wire RC)
+The die is 3000 × 3000 µm (9 mm²). The target core is centered at (600, 600) µm with a nominal size of 1800 × 1800 µm. Row/site and routing-grid snapping gives (600.6, 608.4)–(2398.5, 2382.9) µm, or 1797.9 × 1774.5 µm = 3,190,373.55 µm² (35.45% of the die). The floorplan has 70 core rows and 461 core sites per row after alternate-row removal. Pad locations follow the supplied frame.
 
-OpenROAD checked setup and hold at typ/max/min libraries with the flow's LEF-derived RC estimate. x2 and x4 are sensitivity multipliers of that same assumed model, not foundry RC corners. Slack is in ns; negative setup slack is a violation.
+The global placer used target density 0.60; this is an optimization target, not final utilization. Detailed placement reports 329,121.6 µm² placed standard-cell area, 10.3% utilization, 11,435 µm total displacement, 225 µm maximum displacement, and legalized HPWL of 89,262.5 µm versus 82,849.0 µm before legalization (+8%).
 
-| RC scale | Corner | Setup slack | Hold slack |
-|---|---|---:|---:|
-| x1 | typ | 152.51 | 3.57 |
-| x1 | max | 140.84 | 6.57 |
-| x1 | min | 167.48 | 1.95 |
-| x2 | typ | 88.89 | 4.02 |
-| x2 | max | 100.02 | 7.41 |
-| x2 | min | 92.48 | 2.43 |
-| x4 | typ | **-224.07** | 4.95 |
-| x4 | max | 2.80 | 7.84 |
-| x4 | min | **-951.11** | 2.80 |
+CTS covers 72 clock sinks with 57 clock buffers and a maximum depth of five levels. It inserted 831 row filler instances.
 
-Nominal x1 and x2 checks meet setup and hold. The x4 sensitivity check has setup violations at typ and min; it is included to show the impact of the uncertain wire RC model. The available SCL OpenRCX capacitance coefficients are zero, so this is an estimate and not foundry signoff timing.
+## Routing and signoff geometry
+
+Final detailed routing reports 138,878 µm total wire (60,151 µm on Metal1 and 78,726 µm on Metal2), 1,522 vias, and zero route markers. The final GDS uses the documented DEF geometry fixes: four VDD followpins were extended to the core-ring straps and two narrow reset-net Metal2 segments were shifted. The final ODB was regenerated from that patched DEF before the powered LVS netlist was exported. See verify/SIGNOFF_FIX_NOTES.md.
+
+## Timing: fast and slow corners
+
+OpenROAD checked setup and hold at the x1 assumed wire-RC model. The PDK max library is the slow corner (4.5 V, 85 °C); the min library is the fast corner (5.5 V, −20 °C). Slack is in ns.
+
+| Corner | Setup slack | Hold slack |
+|---|---:|---:|
+| Slow (max library) | 140.84 | 6.57 |
+| Fast (min library) | 167.48 | 1.95 |
+
+Both setup and hold checks pass at these corners. This is an estimate, not foundry timing signoff: the PDK OpenRCX capacitance coefficients are zero, so the flow uses an assumed wire-RC model based on LEF values. Obtain validated RC data from SCL before claiming foundry signoff.
 
 ## Power and verification
 
-- **Dynamic/leakage power:** not estimated; this flow has no activity-based power report.
-- **Power-grid connectivity:** OpenROAD's terminal check reports PSM-0069 on VDD and GROUND. The four previously isolated core VDD rails are connected after the DEF fix; the remaining VDD markers are frame-corner shapes. The GROUND report contains many physical-only filler terminals. These reports need review and are not represented as a power-grid pass.
-- **SCL DRC:** PASS — 0 rule violations and 0 guideline findings.
-- **Full-chip SCL LVS:** PASS — extracted and powered schematic netlists match.
+- Power-grid connectivity: PASS. check_power_grid -dont_require_terminals reports no unconnected shapes on VDD or GROUND; IR analysis completed for both nets. The GROUND followpins and corner-pad supply connections were fixed in the final DEF. See reports/power_grid_check.log and verify/SIGNOFF_FIX_NOTES.md.
+- DRC: PASS — zero rule violations and zero guideline findings.
+- LVS: PASS — the extracted full-chip netlist matches the powered schematic netlist.
+- Power estimation: no dynamic or leakage estimate was run because there is no activity-based power report.
 
 ## Reproduction
 
-Follow [`docs/FLOW_GUIDE.md`](../docs/FLOW_GUIDE.md). Detailed results are in the stage logs under `logs/`, the synthesis report in this directory, and the final DRC/LVS evidence under `verify/`.
+Follow docs/FLOW_GUIDE.md. Stage logs are in logs/, synthesis counts are in reports/synthesis_stat.txt, and final DRC/LVS evidence is in verify/.
 

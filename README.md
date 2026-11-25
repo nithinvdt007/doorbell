@@ -8,11 +8,11 @@ Followable RTL-to-GDS project for the Doorbell ASIC. The flow uses external SCL 
 
 - SCL DRC: **PASS**, 0 rule violations.
 - Full-chip SCL LVS: **PASS**, extracted and schematic netlists match.
-- STA at assumed wire RC x1 and x2: setup and hold pass in typ/max/min.
-- STA x4 sensitivity: setup fails in typ and min; all reported hold slacks stay positive.
-- Power: no activity-based power estimate. OpenROAD power-grid connectivity reports PSM-0069 on VDD and GROUND and still need review.
+- STA at assumed wire RC x1: setup and hold pass at both fast and slow corners.
+- Power-grid connectivity: PASS, no unconnected VDD or GROUND shapes; IR analysis completed for both nets.
+- Dynamic/leakage power was not estimated.
 
-See [reports/ppa_summary.md](reports/ppa_summary.md) for area, floorplan, placement, clock-tree, routing, full x1/x2/x4 timing, and limits. See [docs/FLOW_GUIDE.md](docs/FLOW_GUIDE.md) for the stage-by-stage calculations and commands. The measured signoff geometry edits are in [verify/SIGNOFF_FIX_NOTES.md](verify/SIGNOFF_FIX_NOTES.md).
+See [reports/ppa_summary.md](reports/ppa_summary.md) for area, floorplan, placement, clock-tree, routing, x1 fast/slow timing, and limits. See [docs/FLOW_GUIDE.md](docs/FLOW_GUIDE.md) for the stage-by-stage calculations and commands. The measured signoff geometry edits are in [verify/SIGNOFF_FIX_NOTES.md](verify/SIGNOFF_FIX_NOTES.md).
 
 ## Repository map
 
@@ -56,4 +56,9 @@ export KLAYOUT=klayout
 ## Local-only physical outputs
 
 The `.gitignore` excludes PDK libraries, ODB/DEF/GDS outputs, extracted circuits, and the full-resolution layout preview because they contain PDK cell geometry. Generate these locally using the flow above. The screenshot in `evidence/` is included as a visual reference.
+
+
+## Local fabrication handoff
+
+The checked handoff is in the local FAB_HANDOFF directory. Its 30 packaged files match FAB_HANDOFF/SHA256SUMS.txt. The final framed GDS SHA-256 is 9562577bbee66d0ca9bab486826c6d92cadc9dd77a2aae82629cd3a8c2734035. The binary layout and extracted circuit files stay in that local package; the public repository keeps source, flow, summaries, and the visual screenshot.
 

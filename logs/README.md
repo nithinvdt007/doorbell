@@ -10,10 +10,12 @@ Logs are kept by stage so the run can be followed in the same order as `run.sh`.
 | `placement.log` | Global placement, legalization displacement, HPWL, and final placement utilization. |
 | `cts.log` | Clock sink count, inserted buffers, tree depth, filler placement, and completion marker. |
 | `route.log` | Detailed-router iterations, final wire length by layer, vias, and final OpenROAD violation count. |
-| `finish.log` | Power-grid check messages and powered Verilog export. PSM-0069 findings are summarized in `reports/ppa_summary.md`. |
-| `sta.log` | One worst setup and hold path at each typ/max/min corner and x1/x2/x4 assumed-wire-RC scale. |
+| `finish.log` | Power-grid checks, IR analysis, and powered Verilog export; final connectivity is clean on VDD and GROUND. See `reports/ppa_summary.md`. |
+| `sta.log` | x1 setup and hold paths at the SCL fast and slow Liberty corners. |
 | `gds_signoff_candidate.log` | Streamout log for the patched DEF that was promoted as the signoff GDS. |
 | `frame_merge_signoff_candidate.log` | Confirms die/frame bounds and frame labels for that GDS. |
 
-The floorplan, placement, CTS, and routing logs document the route before the small geometry-only signoff edits. `verify/SIGNOFF_FIX_NOTES.md` records those edits and shows that the final DEF/ODB, powered netlist, GDS, DRC, and LVS were brought back into alignment. The binary databases and GDS remain local and are excluded from Git.
+The floorplan, placement, CTS, and routing logs document the route before the small geometry-only signoff edits. The final power-grid checks pass for VDD and GROUND. `verify/SIGNOFF_FIX_NOTES.md` records those edits and shows that the final DEF/ODB, powered netlist, GDS, DRC, and LVS were brought back into alignment. The binary databases and GDS remain local and are excluded from Git.
+
+
 

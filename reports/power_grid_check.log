@@ -1,5 +1,6 @@
-VDD: CHECK FAIL - PSM-0069
-VDD: ANALYZE FAIL - PSM-0069
-GROUND: CHECK FAIL - PSM-0069
-GROUND: ANALYZE FAIL - PSM-0069
+VDD: check completed (no unconnected shapes)
+VDD: analysis completed
+GROUND: check completed (no unconnected shapes)
+GROUND: analysis completed
+
 

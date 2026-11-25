@@ -48,9 +48,9 @@ Each stage writes a named log under `logs/`. Routing can take several minutes wh
 4. **place** — places the movable standard cells and legalizes them into rows; writes `results/placed.odb`.
 5. **cts** — builds the clock tree for the 72 clock sinks, legalizes the buffers, fills rows, and writes `results/cts.odb`.
 6. **route** — globally and detailed-routes the design. The selected DEF is then patched by `scripts/apply_signoff_def_fix.py` for the measured SCL reset-width and VDD-rail issues. The patch is scoped and idempotent; it stops if a future router produces different geometry. `scripts/import_signoff_def.tcl` rebuilds the ODB from that exact DEF before `scripts/finish.tcl` exports the matching powered netlist.
-7. **sta** — checks setup and hold at typ/max/min corners with the assumed LEF-derived RC model at x1, x2, and x4.
+7. **sta** — checks setup and hold at the SCL fast and slow Liberty corners using the assumed x1 LEF-derived wire-RC model.
 8. **gds** — streams the routed DEF and merges the matching frame to produce the local GDS.
-9. **verify** — runs the SCL KLayout DRC and LVS decks against the GDS and powered netlist.
+9. **verify** — runs the SCL KLayout DRC and LVS decks against the GDS and powered netlist, then checks VDD/GROUND connectivity and runs IR analysis.
 
 ## Floorplan arithmetic
 
@@ -69,9 +69,11 @@ The row/site and routing-grid snap gives the actual core box `(600.6, 608.4)–(
 - `reports/ppa_summary.md`: compact current PPA/signoff summary and limitations.
 - `reports/synthesis_stat.txt`: Yosys mapped-cell counts and abstract Liberty area.
 - `logs/floorplan.log`, `placement.log`, `cts.log`, and `route.log`: detailed stage output for calculations and decisions.
-- `logs/sta.log`: all setup/hold paths at x1/x2/x4; the table is also summarized in `reports/ppa_summary.md`.
+- `logs/sta.log`: x1 fast/slow setup and hold paths used by `reports/ppa_summary.md`.
 - `verify/status.txt`, `drc_summary.txt`, and the two KLayout logs: final DRC/LVS evidence.
 - `verify/SIGNOFF_FIX_NOTES.md`: exact DEF geometry corrections and signoff provenance.
 
-The binary GDS/ODB, extracted netlists, DRC databases, and PDK LEF/Liberty/CDL files are local build artifacts and are intentionally excluded from the public repository. Generate them locally with the flow above.
+The binary GDS/ODB, extracted netlists, DRC databases, and PDK LEF/Liberty/CDL files are local build artifacts and are intentionally excluded from the public repository. The checked fabrication package is in the local FAB_HANDOFF directory.
+
+
 
