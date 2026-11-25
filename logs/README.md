@@ -10,7 +10,8 @@ Logs are kept by stage so the run can be followed in the same order as `run.sh`.
 | `placement.log` | Global placement, legalization displacement, HPWL, and final placement utilization. |
 | `cts.log` | Clock sink count, inserted buffers, tree depth, filler placement, and completion marker. |
 | `route.log` | Detailed-router iterations, final wire length by layer, vias, and final OpenROAD violation count. |
-| `finish.log` | Power-grid checks, IR analysis, and powered Verilog export; final connectivity is clean on VDD and GROUND. See `reports/ppa_summary.md`. |
+| finish.log | Power-grid connectivity checks and powered Verilog export. |
+| power_report.log | Final passing OpenROAD connectivity and IR analysis, including power and voltage-drop values. |
 | `sta.log` | x1 setup and hold paths at the SCL fast and slow Liberty corners. |
 | `gds_signoff_candidate.log` | Streamout log for the patched DEF that was promoted as the signoff GDS. |
 | `frame_merge_signoff_candidate.log` | Confirms die/frame bounds and frame labels for that GDS. |

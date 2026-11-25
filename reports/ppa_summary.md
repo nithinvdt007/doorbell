@@ -12,7 +12,7 @@
 | Routed wire / vias | 138,878 µm / 1,522 |
 | Final detailed-route markers | 0 |
 | DRC / LVS | PASS: 0 rule violations / PASS: netlists match |
-| Power-grid connectivity | PASS: no unconnected VDD or GROUND shapes |
+| OpenROAD IR-analysis total power | 16.9 mW (default corner) |
 | STA setup / hold | PASS at fast and slow corners using assumed x1 RC |
 | Final framed GDS SHA-256 | 9562577bbee66d0ca9bab486826c6d92cadc9dd77a2aae82629cd3a8c2734035 |
 
@@ -41,10 +41,12 @@ Both setup and hold checks pass at these corners. This is an estimate, not found
 
 ## Power and verification
 
-- Power-grid connectivity: PASS. check_power_grid -dont_require_terminals reports no unconnected shapes on VDD or GROUND; IR analysis completed for both nets. The GROUND followpins and corner-pad supply connections were fixed in the final DEF. See reports/power_grid_check.log and verify/SIGNOFF_FIX_NOTES.md.
+- Power-grid connectivity: PASS. OpenROAD reports all VDD and GROUND shapes connected; IR analysis completed for both nets.
+- OpenROAD IR analysis at the default corner reports 16.9 mW total power. Worst VDD drop is 1.02 mV (0.02%); worst GROUND rise is 2.05 mV (0.04%). Supply assumptions are VDD = 5.0 V and GROUND = 0.0 V.
+- The final DEF fixes the GROUND followpins and corner-pad supply connections. The final passing run is in logs/power_report.log; the compact connectivity result is in reports/power_grid_check.log.
 - DRC: PASS — zero rule violations and zero guideline findings.
 - LVS: PASS — the extracted full-chip netlist matches the powered schematic netlist.
-- Power estimation: no dynamic or leakage estimate was run because there is no activity-based power report.
+- This is the reported OpenROAD IR-analysis load; it is not an activity-annotated system power estimate.
 
 ## Reproduction
 

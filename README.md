@@ -9,8 +9,7 @@ Followable RTL-to-GDS project for the Doorbell ASIC. The flow uses external SCL 
 - SCL DRC: **PASS**, 0 rule violations.
 - Full-chip SCL LVS: **PASS**, extracted and schematic netlists match.
 - STA at assumed wire RC x1: setup and hold pass at both fast and slow corners.
-- Power-grid connectivity: **PASS**, no unconnected VDD or GROUND shapes; IR analysis completed for both nets.
-- Dynamic/leakage power was not estimated.
+- Power-grid connectivity: **PASS**; OpenROAD reports 16.9 mW total power, 1.02 mV worst VDD drop and 2.05 mV worst GROUND rise.
 
 See [reports/ppa_summary.md](reports/ppa_summary.md) for area, floorplan, placement, clock-tree, routing, x1 fast/slow timing, and limits. See [docs/FLOW_GUIDE.md](docs/FLOW_GUIDE.md) for the stage-by-stage calculations and commands. The measured signoff geometry edits are in [verify/SIGNOFF_FIX_NOTES.md](verify/SIGNOFF_FIX_NOTES.md).
 
