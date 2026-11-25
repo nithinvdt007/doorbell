@@ -5,3 +5,4 @@ SCL frame slots: PVDD01 2 total, 2 used
 SCL frame slots: PVSS01 2 total, 2 used
 SCL frame power: 9 generated special-net rectangles
 wrote: scripts/frame_pads.tcl scripts/frame_geometry.tcl scripts/frame_power_geometry.tcl
+
