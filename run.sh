@@ -43,7 +43,7 @@ prep)
     echo "OK: prep" ;;
 synth)
     need libs/cp8d_core_max.clean.lib libs/cp8d_pads_max.clean.lib rtl/doorbell.v rtl/doorbell_chip.v
-    "$YOSYS" -q -s scripts/synth.ys > logs/synth.log 2>&1 || { echo "FAILED: synth"; tail -25 logs/synth.log; exit 1; }
+    "$YOSYS" -s scripts/synth.ys > logs/synth.log 2>&1 || { echo "FAILED: synth"; tail -25 logs/synth.log; exit 1; }
     need results/mapped.v
     echo "OK: synth"; grep -E "Chip area|DFCL11" reports/synthesis_stat.txt | head -4 ;;
 floorplan)
@@ -88,6 +88,9 @@ route)
         done
     fi
     cp "results/$best.odb" results/route.odb; cp "results/$best.def" results/route.def
+    python3 scripts/apply_signoff_def_fix.py results/route.def || exit 1
+    SIGNOFF_DEF="$PWD/results/route.def" SIGNOFF_ODB="$PWD/results/route.odb" \
+        run_or signoff_import scripts/import_signoff_def.tcl "CP8D SIGNOFF DEF IMPORTED" || exit 1
     run_or finish scripts/finish.tcl "CP8D FINISH COMPLETED" || exit 1
     echo "FINAL ROUTE: $best with $bestn detailed-route violations -> results/route.odb"
     [ "$bestn" -eq 0 ] || echo "WARNING: not clean. Do not stream out for fabrication; see README 'If routing is not clean'." ;;
@@ -119,6 +122,9 @@ route-extra)
     done
     cp "results/$best.odb" results/route.odb
     cp "results/$best.def" results/route.def
+    python3 scripts/apply_signoff_def_fix.py results/route.def || exit 1
+    SIGNOFF_DEF="$PWD/results/route.def" SIGNOFF_ODB="$PWD/results/route.odb" \
+        run_or signoff_import scripts/import_signoff_def.tcl "CP8D SIGNOFF DEF IMPORTED" || exit 1
     run_or finish scripts/finish.tcl "CP8D FINISH COMPLETED" || exit 1
     echo "BEST ROUTE: $best with $bestn detailed-route violations -> results/route.odb"
     [ "$bestn" -eq 0 ] || echo "WARNING: route still has violations; do not treat as signoff-ready." ;;
@@ -162,3 +168,4 @@ all)
 *)
     sed -n '2,3p' "$0" ;;
 esac
+

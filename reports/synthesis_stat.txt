@@ -1,0 +1,50 @@
+
+16. Printing statistics.
+
+=== doorbell_chip ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      457        - wires
+      463        - wire bits
+       88        - public wires
+       94        - public wire bits
+        6        - ports
+       12        - port bits
+      392  3487.77 cells
+       23    53.59   ADNR00
+       19       38   AND200
+        9    20.97   AND300
+        7    18.69   AND400
+        7       21   AND500
+        2     5.34   AOI400
+       72   527.76   DFCL11
+       25       25   INVR00
+        7    18.69   MX2100
+       37    49.21   NND200
+        9       18   NND300
+        7    16.31   NND400
+        1     2.67   NND500
+        1     4.33   NND600
+       56    74.48   NOR200
+       23       46   NOR300
+       11    29.37   NOR400
+        1        4   NOR500
+        2    10.74   NOR600
+        4     9.32   OAI400
+        7    11.69   OR2100
+        2     4.66   OR3100
+        1     3.33   OR4100
+       37       74   ORND00
+        9  1382.04   OTPD01
+        2      250   PVDD01
+        2      250   PVSS01
+        3   496.56   SPAD00
+        4    14.68   XNR200
+        2     7.34   XOR200
+
+   Chip area for module '\doorbell_chip': 3487.770000
+     of which used for sequential elements: 527.760000 (15.13%)
+
+

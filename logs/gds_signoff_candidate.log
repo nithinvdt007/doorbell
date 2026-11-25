@@ -3,4 +3,5 @@ Warning: No mapping for purpose 'OUTLINE' - layer is ignored (line=6, cell=, fil
 Warning: No mapping for layer 'via', purpose 'BLK' - layer is ignored (line=1458, cell=, file=route.streamout.def)
 Streamout: normalized 0 internal flush bends
 Streamout: converted 4851 wire paths to 4851 rectangles
-GDS written: /mnt/c/Users/Admin/OneDrive/Documents/New project/doorbell_v3_rebuild_20261124/results/doorbell_chip_unframed.gds
+GDS written: /mnt/c/Users/Admin/db/results/doorbell_chip_signoff_candidate_unframed.gds
+

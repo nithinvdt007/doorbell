@@ -1,0 +1,146 @@
+=== STA x1 typ_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_712_/D (DFCL11)                      208.25   55.75  152.51 (MET)
+
+=== STA x1 typ_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                        9.61   13.17    3.57 (MET)
+
+=== STA x1 max_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_722_/D (DFCL11)                      216.93   76.09  140.84 (MET)
+
+=== STA x1 max_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                       17.30   23.86    6.57 (MET)
+
+=== STA x1 min_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_712_/D (DFCL11)                      204.90   37.42  167.48 (MET)
+
+=== STA x1 min_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_744_/D (DFCL11)                        6.75    8.70    1.95 (MET)
+
+=== STA x2 typ_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_712_/D (DFCL11)                      212.72  123.83   88.89 (MET)
+
+=== STA x2 typ_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                       14.54   18.56    4.02 (MET)
+
+=== STA x2 max_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                      224.77  124.75  100.02 (MET)
+
+=== STA x2 max_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                       26.51   33.92    7.41 (MET)
+
+=== STA x2 min_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                      208.87  116.38   92.48 (MET)
+
+=== STA x2 min_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_722_/D (DFCL11)                       10.84   13.27    2.43 (MET)
+
+=== STA x4 typ_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                      221.61  445.69 -224.07 (VIOLATED)
+
+=== STA x4 typ_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                       24.03   28.98    4.95 (MET)
+
+=== STA x4 max_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                      241.81  239.01    2.80 (MET)
+
+=== STA x4 max_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_684_/D (DFCL11)                       47.32   55.16    7.84 (MET)
+
+=== STA x4 min_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_699_/D (DFCL11)                      212.14 1163.24 -951.11 (VIOLATED)
+
+=== STA x4 min_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_722_/D (DFCL11)                       19.34   22.14    2.80 (MET)
+
+=== STA DONE
+
