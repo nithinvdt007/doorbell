@@ -192,3 +192,4 @@ for name in ("SPAD00", "ASPAD00", "PVDD01", "PVSS01"):
           (name, len(pad_slots[name]), len(signal_slots.get(name, power_slots.get(name, [])))))
 print("SCL frame power: %d generated special-net rectangles" % len(power_rectangles))
 print("wrote:", pad_tcl_path, geometry_tcl_path, power_tcl_path)
+

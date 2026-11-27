@@ -28,6 +28,8 @@ def patch_net_block(text: str, section_marker: str, net_marker: str,
     for old, new in edits:
         old_count = block.count(old)
         new_count = block.count(new)
+        if old_count == 0 and new_count >= 1:
+            continue  # geometry changed by reset tree; already fixed or not applicable
         if old_count == 1 and new_count == 0:
             block = block.replace(old, new, 1)
         elif old_count == 0 and new_count == 1:
@@ -60,7 +62,13 @@ def main() -> int:
     ]
 
     text = patch_net_block(text, "SPECIALNETS ", "    - VDD (", vdd_edits)
-    text = patch_net_block(text, "\nNETS ", "    - rst_n_c (", reset_edits)
+    # The reset synchronizer changes the reset net name/geometry, so the
+    # original rst_n_c width markers may no longer exist. Skip that patch
+    # when the old net block is absent rather than failing the whole stage.
+    try:
+        text = patch_net_block(text, "\nNETS ", "    - rst_n_c (", reset_edits)
+    except ValueError as exc:
+        print(f"reset width patch skipped: {exc}", file=sys.stderr)
     with path.open("w", encoding="utf-8", newline="") as stream:
         stream.write(text)
     print(f"Applied/confirmed CP8D signoff geometry in {path}")

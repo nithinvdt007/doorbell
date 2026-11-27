@@ -52,3 +52,4 @@ for (l, d), (expected_count, expected_type) in expected.items():
             sys.exit("Unexpected shape type on required frame layer %d/%d" % (l, d))
     print("copied %d %s shape(s) on %d/%d" % (expected_count, expected_type, l, d))
 ch.write(os.environ["OUT"]); print("wrote", os.environ["OUT"])
+

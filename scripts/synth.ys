@@ -26,3 +26,4 @@ check -assert
 
 tee -o reports/synthesis_stat.txt stat -liberty libs/cp8d_core_max.clean.lib -liberty libs/cp8d_pads_max.clean.lib
 write_verilog -noattr -noexpr -nohex -nodec results/mapped.v
+

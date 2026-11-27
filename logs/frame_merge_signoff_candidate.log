@@ -1,6 +1,0 @@
-chip top: doorbell_chip bbox (0,0;3000,3000) | frame bbox (0,0;3000,3000)
-SCL IO instances: CORNER=4 SPAD00=3 OTPD01=9 PVDD01=2 PVSS01=2
-copied 1 box shape(s) on 28/0
-copied 2 text shape(s) on 8/7
-wrote /mnt/c/Users/Admin/db/results/doorbell_chip_signoff_candidate.gds
-

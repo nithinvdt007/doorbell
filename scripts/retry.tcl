@@ -51,3 +51,4 @@ set route_def [file normalize [format "results/route_s%s.def" $seed]]
 write_db $route_db
 write_def $route_def
 puts "CP8D ROUTING SEED $seed COMPLETED"
+

@@ -8,3 +8,4 @@ if {$DIE_W < $CORE_SIZE || $DIE_H < $CORE_SIZE} {
 set CORE_LO [expr {($DIE_W - $CORE_SIZE) / 2.0}]
 set CORE_HI [expr {$CORE_LO + $CORE_SIZE}]
 set PAD_GAP 0.0
+

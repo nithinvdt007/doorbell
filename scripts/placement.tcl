@@ -23,3 +23,4 @@ write_db  results/placed.odb
 write_def results/placed.def
 report_design_area
 puts "CP8D PLACEMENT COMPLETED"
+

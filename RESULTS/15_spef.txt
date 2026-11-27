@@ -1,0 +1,4 @@
+nets 498 | net total cap: sum 0, max 0, nets with nonzero cap 0
+capacitor entries 9529 (nonzero 0, sum 0) | resistor entries 1655 (nonzero 927, sum 479.925, max 2.025)
+RESULT: zero wire capacitance. This extraction is NOT usable for timing.
+

@@ -8,3 +8,4 @@ define_process_corner -ext_model_index 0 $scl(rcx_rules)
 extract_parasitics -ext_model_file $scl(rcx_rules)
 write_spef results/route_rcx.spef
 puts "CP8D SPEF COMPLETED"
+

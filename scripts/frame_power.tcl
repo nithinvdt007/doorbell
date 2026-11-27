@@ -28,3 +28,4 @@ foreach rect $FRAME_POWER_RECTS {
   }
 }
 puts "SCL FRAME POWER RAILS ADDED: [llength $FRAME_POWER_RECTS] shapes"
+

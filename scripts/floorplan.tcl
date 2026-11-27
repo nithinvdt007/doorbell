@@ -134,3 +134,4 @@ write_db  results/floorplan.odb
 write_def results/floorplan.def
 report_design_area
 puts "CP8D FLOORPLAN COMPLETED"
+

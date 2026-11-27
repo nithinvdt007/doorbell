@@ -42,3 +42,4 @@ else LVS="UNKNOWN - read verify/klayout_lvs.log"; fi
 echo "LVS: $LVS"
 printf 'DRC: %s\nLVS: %s\n' "$DRC" "$LVS" > verify/status.txt
 case "$DRC$LVS" in *FAIL*|*UNKNOWN*) exit 1;; esac
+

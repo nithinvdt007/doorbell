@@ -1,0 +1,9 @@
+  cell DFCL11 (noninv, pins=5, area=7.33) is a direct match for cell type $_DFF_PN0_.
+    \DFCL11 _DFF_PN0_ (.C( C), .CLR( R), .D( D), .Q( Q), .QB(~Q));
+  mapped 74 $_DFF_PN0_ cells to \DFCL11 cells.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFCL11".
+ABC: Warning: Detected 3 multi-output cells (for example, "ADR100").
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+       74   542.42   DFCL11
+   Chip area for module '\doorbell_chip': 3498.760000
+

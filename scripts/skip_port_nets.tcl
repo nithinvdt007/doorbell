@@ -4,3 +4,4 @@ foreach bt [$block getBTerms] {
     set net [$bt getNet]
     if {$net ne "NULL"} { $net setSpecial }
 }
+

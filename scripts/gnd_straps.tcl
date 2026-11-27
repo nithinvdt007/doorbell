@@ -43,3 +43,4 @@ foreach padname {u_pad_vss0 u_pad_vss1} {
   if {[catch {odb::dbSBox_create $sw $m2 $x1 $y1 $x2 $y2 "STRIPE"} err]} { puts "GNDSTRAP $padname create failed: $err"; continue }
   puts [format "GNDSTRAP %s added x %.1f..%.1f y %.1f..%.1f" $padname [expr {$x1/double($dbu)}] [expr {$x2/double($dbu)}] [expr {$y1/double($dbu)}] [expr {$y2/double($dbu)}]]
 }
+

@@ -42,3 +42,4 @@ sub('''            properties = shape.properties()
 ''')
 open(dst, "w").write(text)
 print("patched:", dst)
+

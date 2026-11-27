@@ -1,8 +1,0 @@
-SCL frame: frame3mmx3mm 3000.0 x 3000.0 um
-SCL frame slots: SPAD00 12 total, 6 used
-SCL frame slots: ASPAD00 12 total, 6 used
-SCL frame slots: PVDD01 2 total, 2 used
-SCL frame slots: PVSS01 2 total, 2 used
-SCL frame power: 9 generated special-net rectangles
-wrote: scripts/frame_pads.tcl scripts/frame_geometry.tcl scripts/frame_power_geometry.tcl
-

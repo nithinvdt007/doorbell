@@ -1,0 +1,136 @@
+Wire length:           29475
+[INFO GRT-0303] Global routing runtime = 00:00:00
+    Completing 10% with 0 violations.
+    Completing 20% with 0 violations.
+    Completing 30% with 292 violations.
+    Completing 40% with 292 violations.
+    Completing 50% with 292 violations.
+    Completing 60% with 594 violations.
+    Completing 70% with 594 violations.
+    Completing 80% with 792 violations.
+    Completing 90% with 792 violations.
+    Completing 100% with 947 violations.
+[INFO DRT-0199]   Number of violations = 995.
+Total wire length = 139523 um.
+Total wire length on LAYER metal1 = 58523 um.
+Total wire length on LAYER metal2 = 80999 um.
+    Completing 10% with 995 violations.
+    Completing 20% with 995 violations.
+    Completing 30% with 865 violations.
+    Completing 40% with 865 violations.
+    Completing 50% with 865 violations.
+    Completing 60% with 827 violations.
+    Completing 70% with 827 violations.
+    Completing 80% with 583 violations.
+    Completing 90% with 583 violations.
+    Completing 100% with 349 violations.
+[INFO DRT-0199]   Number of violations = 349.
+Total wire length = 138452 um.
+Total wire length on LAYER metal1 = 58673 um.
+Total wire length on LAYER metal2 = 79779 um.
+    Completing 10% with 349 violations.
+    Completing 20% with 349 violations.
+    Completing 30% with 340 violations.
+    Completing 40% with 340 violations.
+    Completing 50% with 340 violations.
+    Completing 60% with 384 violations.
+    Completing 70% with 384 violations.
+    Completing 80% with 386 violations.
+    Completing 90% with 386 violations.
+    Completing 100% with 369 violations.
+[INFO DRT-0199]   Number of violations = 369.
+Total wire length = 137530 um.
+Total wire length on LAYER metal1 = 58374 um.
+Total wire length on LAYER metal2 = 79155 um.
+    Completing 10% with 369 violations.
+    Completing 20% with 369 violations.
+    Completing 30% with 352 violations.
+    Completing 40% with 352 violations.
+    Completing 50% with 352 violations.
+    Completing 60% with 328 violations.
+    Completing 70% with 328 violations.
+    Completing 80% with 248 violations.
+    Completing 90% with 248 violations.
+    Completing 100% with 228 violations.
+[INFO DRT-0199]   Number of violations = 228.
+Total wire length = 138804 um.
+Total wire length on LAYER metal1 = 59703 um.
+Total wire length on LAYER metal2 = 79101 um.
+    Completing 10% with 228 violations.
+    Completing 20% with 228 violations.
+    Completing 30% with 204 violations.
+    Completing 40% with 204 violations.
+    Completing 50% with 204 violations.
+    Completing 60% with 183 violations.
+    Completing 70% with 183 violations.
+    Completing 80% with 172 violations.
+    Completing 90% with 172 violations.
+    Completing 100% with 171 violations.
+[INFO DRT-0199]   Number of violations = 171.
+Total wire length = 139099 um.
+Total wire length on LAYER metal1 = 59995 um.
+Total wire length on LAYER metal2 = 79103 um.
+    Completing 10% with 171 violations.
+    Completing 20% with 171 violations.
+    Completing 30% with 160 violations.
+    Completing 40% with 160 violations.
+    Completing 50% with 160 violations.
+    Completing 60% with 114 violations.
+    Completing 70% with 114 violations.
+    Completing 80% with 81 violations.
+    Completing 90% with 81 violations.
+    Completing 100% with 68 violations.
+[INFO DRT-0199]   Number of violations = 68.
+Total wire length = 139341 um.
+Total wire length on LAYER metal1 = 60761 um.
+Total wire length on LAYER metal2 = 78579 um.
+    Completing 10% with 68 violations.
+    Completing 20% with 68 violations.
+    Completing 30% with 68 violations.
+    Completing 40% with 68 violations.
+    Completing 50% with 68 violations.
+    Completing 60% with 16 violations.
+    Completing 70% with 16 violations.
+    Completing 80% with 16 violations.
+    Completing 90% with 16 violations.
+    Completing 100% with 10 violations.
+[INFO DRT-0199]   Number of violations = 10.
+Total wire length = 139228 um.
+Total wire length on LAYER metal1 = 60777 um.
+Total wire length on LAYER metal2 = 78451 um.
+    Completing 20% with 10 violations.
+    Completing 40% with 10 violations.
+    Completing 60% with 10 violations.
+    Completing 80% with 8 violations.
+    Completing 100% with 8 violations.
+[INFO DRT-0199]   Number of violations = 8.
+Total wire length = 139239 um.
+Total wire length on LAYER metal1 = 60777 um.
+Total wire length on LAYER metal2 = 78462 um.
+    Completing 30% with 8 violations.
+    Completing 60% with 8 violations.
+    Completing 100% with 8 violations.
+[INFO DRT-0199]   Number of violations = 8.
+Total wire length = 139239 um.
+Total wire length on LAYER metal1 = 60777 um.
+Total wire length on LAYER metal2 = 78462 um.
+    Completing 10% with 8 violations.
+    Completing 20% with 8 violations.
+    Completing 30% with 8 violations.
+    Completing 40% with 8 violations.
+    Completing 50% with 8 violations.
+    Completing 60% with 8 violations.
+    Completing 70% with 8 violations.
+    Completing 80% with 8 violations.
+    Completing 90% with 8 violations.
+    Completing 100% with 0 violations.
+[INFO DRT-0199]   Number of violations = 0.
+Total wire length = 139220 um.
+Total wire length on LAYER metal1 = 60784 um.
+Total wire length on LAYER metal2 = 78435 um.
+Total wire length = 139220 um.
+Total wire length on LAYER metal1 = 60784 um.
+Total wire length on LAYER metal2 = 78435 um.
+[INFO DRT-0501] Runtime: 224.32s
+CP8D ROUTING PASS1 COMPLETED
+

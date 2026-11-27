@@ -1,0 +1,40 @@
+[INFO CTS-0050] Root buffer is BUFF00.
+[INFO CTS-0051] Sink buffer is BUFF00.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+[INFO CTS-0049] Characterization buffer is BUFF00.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0116] Special net "clk" skipped.
+[INFO CTS-0010]  Clock net "clk_c" has 74 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_c.
+[INFO CTS-0028]  Total number of sinks: 74.
+[INFO CTS-0060]  Register sinks will be clustered in groups of up to 4 and based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 126750  dbu (126 um).
+[INFO CTS-0023]  Original sink region: [(995800, 620950), (2126800, 1989850)].
+[INFO CTS-0024]  Normalized sink region: [(7.85641, 4.89901), (16.7795, 15.699)].
+[INFO CTS-0025]     Width:  8.9231.
+[INFO CTS-0026]     Height: 10.8000.
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (39839.221 um) and max number of sinks is 4.
+[INFO CTS-0035]  Number of sinks covered: 74.
+[INFO CTS-0018]     Created 57 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 4.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 4.
+[INFO CTS-0015]     Created 57 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:22, 3:10..
+[INFO CTS-0017]     Max level of the clock tree: 5.
+[INFO CTS-0098] Clock net "clk_c"
+[INFO CTS-0099]  Sinks 74
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 3058.66 um
+[INFO CTS-0102]  Path depth 4 - 4
+[INFO CTS-0500] Runtime: 2.59s
+CP8D CTS COMPLETED
+

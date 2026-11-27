@@ -52,3 +52,4 @@ if __name__ == "__main__":
     lvs = db.LayoutVsSchematic()
     lvs.read(os.environ.get("LVSDB_PATH", "verify/doorbell_chip.lvsdb"))
     run(lvs)
+

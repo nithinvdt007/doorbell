@@ -18,3 +18,4 @@ for line in open("results/floorplan.def"):
             if r[0] < p[2] and r[2] > p[0] and r[1] < p[3] and r[3] > p[1]:
                 hits[k][(net, lay)] = hits[k].get((net, lay), 0) + 1
 for k, h in hits.items(): print("%-22s" % k, dict(h) if h else "NOTHING TOUCHES THIS PAD")
+

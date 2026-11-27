@@ -22,3 +22,4 @@ detailed_route -output_drc reports/route_pass1.rpt -droute_end_iter 30 -verbose 
 write_db  results/route_pass1.odb
 write_def results/route_pass1.def
 puts "CP8D ROUTING PASS1 COMPLETED"
+

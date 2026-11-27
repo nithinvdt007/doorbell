@@ -26,3 +26,4 @@ place_pad u_pad_vdd0 R90 0.000 1050.000
 place_pad u_pad_vdd1 R270 2695.100 1750.000
 place_pad u_pad_vss0 MYR90 0.000 1750.000
 place_pad u_pad_vss1 MXR90 2695.100 1050.000
+

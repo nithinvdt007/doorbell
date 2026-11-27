@@ -1,0 +1,17 @@
+[INFO GPL-0035] Pin density area adjust:     42617.341 um^2
+[INFO GPL-0013] Placement BBox: ( 600.600 608.400 ) ( 2398.500 2382.900 ) um
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0023] Placement target density:       0.6000
+[INFO GPL-0084] ---- Execute Nesterov Global Placement.
+[INFO GPL-1001] Global placement finished at iteration 385
+[INFO GPL-1004] Minimum Feasible Density        0.2400 (cell_area / free_area)
+[INFO GPL-1014] Final placement area: 375001.47 (+0.00%)
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+Iteration | Violations |    Cells |    Sites
+Placement Analysis
+total displacement      11568.5 u
+average displacement       30.9 u
+max displacement          125.6 u
+CP8D PLACEMENT COMPLETED
+

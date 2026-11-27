@@ -19,3 +19,4 @@ print("capacitor entries %d (nonzero %d, sum %.6g) | resistor entries %d (nonzer
       (len(caps), nz(caps), sum(caps), len(res), nz(res), sum(res), max(res or [0])))
 if sum(netcap) == 0:
     print("RESULT: zero wire capacitance. This extraction is NOT usable for timing.")
+

@@ -1,0 +1,1147 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.63+188 (git sha1 cede13a74, clang++ 18.1.8 -fPIC -O3)
+
+-- Executing script file `scripts/synth.ys' --
+
+1. Executing Verilog-2005 frontend: rtl/doorbell.v
+Parsing SystemVerilog input from `rtl/doorbell.v' to AST representation.
+Generating RTLIL representation for module `\doorbell_top'.
+Generating RTLIL representation for module `\debouncer'.
+Generating RTLIL representation for module `\edge_detector'.
+Generating RTLIL representation for module `\bcd_counter'.
+Generating RTLIL representation for module `\seg7_decoder'.
+Generating RTLIL representation for module `\blink_pulse'.
+Generating RTLIL representation for module `\sleep_fsm'.
+Generating RTLIL representation for module `\clock_gate_icg'.
+Generating RTLIL representation for module `\doorbell_top_lowpower'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/doorbell_chip.v
+Parsing SystemVerilog input from `rtl/doorbell_chip.v' to AST representation.
+Generating RTLIL representation for module `\doorbell_chip'.
+Successfully finished Verilog frontend.
+
+3. Executing Liberty frontend: libs/cp8d_core_max.clean.lib
+Imported 59 cell types from liberty file.
+
+4. Executing Liberty frontend: libs/cp8d_pads_max.clean.lib
+Imported 22 cell types from liberty file.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+Used module:     \doorbell_top
+Used module:         \sleep_fsm
+Used module:         \blink_pulse
+Used module:         \seg7_decoder
+Used module:         \bcd_counter
+Used module:         \edge_detector
+Used module:         \debouncer
+Parameter \IDLE_BITS = 24
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\sleep_fsm'.
+Parameter \IDLE_BITS = 24
+Generating RTLIL representation for module `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000'.
+Parameter \CNT_WIDTH = 20
+
+5.3. Executing AST frontend in derive mode using pre-parsed AST for module `\blink_pulse'.
+Parameter \CNT_WIDTH = 20
+Generating RTLIL representation for module `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100'.
+Parameter \CNT_WIDTH = 16
+
+5.4. Executing AST frontend in derive mode using pre-parsed AST for module `\debouncer'.
+Parameter \CNT_WIDTH = 16
+Generating RTLIL representation for module `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000'.
+
+5.5. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+Used module:     \doorbell_top
+Used module:         $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000
+Used module:         $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100
+Used module:         \seg7_decoder
+Used module:         \bcd_counter
+Used module:         \edge_detector
+Used module:         $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000
+
+5.6. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+Used module:     \doorbell_top
+Used module:         $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000
+Used module:         $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100
+Used module:         \seg7_decoder
+Used module:         \bcd_counter
+Used module:         \edge_detector
+Used module:         $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000
+Removing unused module `\doorbell_top_lowpower'.
+Removing unused module `\clock_gate_icg'.
+Removing unused module `\sleep_fsm'.
+Removing unused module `\blink_pulse'.
+Removing unused module `\debouncer'.
+Removed 5 unused modules.
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+Used module:     \doorbell_top
+Used module:         $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000
+Used module:         $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100
+Used module:         \seg7_decoder
+Used module:         \bcd_counter
+Used module:         \edge_detector
+Used module:         $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+Used module:     \doorbell_top
+Used module:         $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000
+Used module:         $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100
+Used module:         \seg7_decoder
+Used module:         \bcd_counter
+Used module:         \edge_detector
+Used module:         $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/doorbell_chip.v:29$31 in module doorbell_chip.
+Marked 1 switch rules as full_case in process $proc$rtl/doorbell_chip.v:21$29 in module doorbell_chip.
+Marked 3 switch rules as full_case in process $proc$rtl/doorbell.v:143$43 in module $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.
+Marked 1 switch rules as full_case in process $proc$rtl/doorbell.v:133$41 in module $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.
+Marked 3 switch rules as full_case in process $proc$rtl/doorbell.v:309$37 in module $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.
+Marked 4 switch rules as full_case in process $proc$rtl/doorbell.v:371$33 in module $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.
+Marked 1 switch rules as full_case in process $proc$rtl/doorbell.v:268$16 in module seg7_decoder.
+Marked 2 switch rules as full_case in process $proc$rtl/doorbell.v:222$12 in module bcd_counter.
+Marked 1 switch rules as full_case in process $proc$rtl/doorbell.v:188$8 in module edge_detector.
+Removed a total of 0 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 1 assignment to connection.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n_c in `\doorbell_chip.$proc$rtl/doorbell_chip.v:29$31'.
+Found async reset \rst_n_c in `\doorbell_chip.$proc$rtl/doorbell_chip.v:21$29'.
+Found async reset \rst_n in `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:143$43'.
+Found async reset \rst_n in `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:133$41'.
+Found async reset \rst_n in `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+Found async reset \rst_n in `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+Found async reset \rst_n in `\bcd_counter.$proc$rtl/doorbell.v:222$12'.
+Found async reset \rst_n in `\edge_detector.$proc$rtl/doorbell.v:188$8'.
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~11 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\doorbell_chip.$proc$rtl/doorbell_chip.v:29$31'.
+     1/2: $0\rst_sync_1[0:0]
+     2/2: $0\rst_sync_0[0:0]
+Creating decoders for process `\doorbell_chip.$proc$rtl/doorbell_chip.v:21$29'.
+     1/1: $0\rst_zero[0:0]
+Creating decoders for process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:143$43'.
+     1/2: $0\stable_cnt[15:0]
+     2/2: $0\btn_out[0:0]
+Creating decoders for process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:133$41'.
+     1/2: $0\btn_sync_1[0:0]
+     2/2: $0\btn_sync_0[0:0]
+Creating decoders for process `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+     1/3: $0\running[0:0]
+     2/3: $0\cnt[19:0]
+     3/3: $0\pulse[0:0]
+Creating decoders for process `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+     1/3: $0\idle_cnt[23:0]
+     2/3: $0\state[0:0]
+     3/3: $0\sleep_out[0:0]
+Creating decoders for process `\seg7_decoder.$proc$rtl/doorbell.v:268$16'.
+     1/1: $1\seg_out[6:0]
+Creating decoders for process `\bcd_counter.$proc$rtl/doorbell.v:222$12'.
+     1/1: $0\count[3:0]
+Creating decoders for process `\edge_detector.$proc$rtl/doorbell.v:188$8'.
+     1/1: $0\sig_prev[0:0]
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\seg7_decoder.\seg_out' from process `\seg7_decoder.$proc$rtl/doorbell.v:268$16'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\doorbell_chip.\rst_sync_0' using process `\doorbell_chip.$proc$rtl/doorbell_chip.v:29$31'.
+  created $adff cell `$procdff$131' with positive edge clock and positive level reset.
+Creating register for signal `\doorbell_chip.\rst_sync_1' using process `\doorbell_chip.$proc$rtl/doorbell_chip.v:29$31'.
+  created $adff cell `$procdff$136' with positive edge clock and positive level reset.
+Creating register for signal `\doorbell_chip.\rst_zero' using process `\doorbell_chip.$proc$rtl/doorbell_chip.v:21$29'.
+  created $adff cell `$procdff$141' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.\btn_out' using process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:143$43'.
+  created $adff cell `$procdff$146' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.\stable_cnt' using process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:143$43'.
+  created $adff cell `$procdff$151' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.\btn_sync_0' using process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:133$41'.
+  created $adff cell `$procdff$156' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.\btn_sync_1' using process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:133$41'.
+  created $adff cell `$procdff$161' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.\pulse' using process `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+  created $adff cell `$procdff$166' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.\cnt' using process `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+  created $adff cell `$procdff$171' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.\running' using process `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+  created $adff cell `$procdff$176' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.\sleep_out' using process `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+  created $adff cell `$procdff$181' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.\state' using process `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+  created $adff cell `$procdff$186' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.\idle_cnt' using process `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+  created $adff cell `$procdff$191' with positive edge clock and positive level reset.
+Creating register for signal `\bcd_counter.\count' using process `\bcd_counter.$proc$rtl/doorbell.v:222$12'.
+  created $adff cell `$procdff$196' with positive edge clock and positive level reset.
+Creating register for signal `\edge_detector.\sig_prev' using process `\edge_detector.$proc$rtl/doorbell.v:188$8'.
+  created $adff cell `$procdff$201' with positive edge clock and positive level reset.
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `doorbell_chip.$proc$rtl/doorbell_chip.v:29$31'.
+Removing empty process `doorbell_chip.$proc$rtl/doorbell_chip.v:21$29'.
+Found and cleaned up 2 empty switches in `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:143$43'.
+Removing empty process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:143$43'.
+Removing empty process `$paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.$proc$rtl/doorbell.v:133$41'.
+Found and cleaned up 3 empty switches in `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+Removing empty process `$paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.$proc$rtl/doorbell.v:309$37'.
+Found and cleaned up 4 empty switches in `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+Removing empty process `$paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.$proc$rtl/doorbell.v:371$33'.
+Found and cleaned up 1 empty switch in `\seg7_decoder.$proc$rtl/doorbell.v:268$16'.
+Removing empty process `seg7_decoder.$proc$rtl/doorbell.v:268$16'.
+Found and cleaned up 2 empty switches in `\bcd_counter.$proc$rtl/doorbell.v:222$12'.
+Removing empty process `bcd_counter.$proc$rtl/doorbell.v:222$12'.
+Removing empty process `edge_detector.$proc$rtl/doorbell.v:188$8'.
+Cleaned up 12 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+<suppressed ~6 debug messages>
+Optimizing module $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~8 debug messages>
+Optimizing module $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.
+<suppressed ~6 debug messages>
+Optimizing module $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.
+<suppressed ~9 debug messages>
+Optimizing module seg7_decoder.
+Optimizing module bcd_counter.
+<suppressed ~2 debug messages>
+Optimizing module edge_detector.
+<suppressed ~2 debug messages>
+Optimizing module doorbell_top.
+
+6.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\debouncer\CNT_WIDTH=s32'00000000000000000000000000010000.
+Deleting now unused module $paramod\blink_pulse\CNT_WIDTH=s32'00000000000000000000000000010100.
+Deleting now unused module $paramod\sleep_fsm\IDLE_BITS=s32'00000000000000000000000000011000.
+Deleting now unused module seg7_decoder.
+Deleting now unused module bcd_counter.
+Deleting now unused module edge_detector.
+Deleting now unused module doorbell_top.
+<suppressed ~7 debug messages>
+
+6.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 23 unused cells and 84 unused wires.
+<suppressed ~24 debug messages>
+
+6.6. Executing CHECK pass (checking for obvious problems).
+Checking module doorbell_chip...
+Found and reported 0 problems.
+
+6.7. Executing OPT pass (performing simple optimizations).
+
+6.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 82 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Computing hashes of 80 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+6.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\u_core.\u_blink.$procmux$67: \u_core.u_blink.running -> 1'0
+      Replacing known input bits on port A of cell $flatten\u_core.\u_blink.$procmux$65: \u_core.u_blink.running -> 1'1
+      Replacing known input bits on port A of cell $flatten\u_core.\u_sleep.$procmux$101: \u_core.u_sleep.state -> 1'0
+      Replacing known input bits on port A of cell $flatten\u_core.\u_sleep.$procmux$99: \u_core.u_sleep.state -> 1'1
+      Replacing known input bits on port B of cell $flatten\u_core.\u_sleep.$procmux$107: \u_core.u_sleep.state -> 1'0
+      Replacing known input bits on port A of cell $flatten\u_core.\u_sleep.$procmux$104: \u_core.u_sleep.state -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+6.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 0 changes.
+
+6.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 80 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+Handling D = Q on $procdff$141 ($adff) from module doorbell_chip (removing D path).
+Setting constant 0-bit at position 0 on $procdff$141 ($dlatch) from module doorbell_chip.
+
+6.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+6.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+6.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 0 changes.
+
+6.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 79 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.8. Executing FSM pass (extract and optimize FSM).
+
+6.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.9. Executing OPT pass (performing simple optimizations).
+
+6.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 79 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+6.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 0 changes.
+
+6.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 79 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $flatten\u_core.\u_sleep.$procdff$181 ($adff) from module doorbell_chip (D = $flatten\u_core.\u_sleep.$0\sleep_out[0:0], Q = \u_core.u_sleep.sleep_out).
+Adding EN signal on $flatten\u_core.\u_sleep.$procdff$191 ($adff) from module doorbell_chip (D = $flatten\u_core.\u_sleep.$0\idle_cnt[23:0], Q = \u_core.u_sleep.idle_cnt).
+Adding EN signal on $flatten\u_core.\u_blink.$procdff$166 ($adff) from module doorbell_chip (D = $flatten\u_core.\u_blink.$0\pulse[0:0], Q = \u_core.u_blink.pulse).
+Adding EN signal on $flatten\u_core.\u_blink.$procdff$171 ($adff) from module doorbell_chip (D = $flatten\u_core.\u_blink.$0\cnt[19:0], Q = \u_core.u_blink.cnt).
+Adding EN signal on $flatten\u_core.\u_debounce.$procdff$146 ($adff) from module doorbell_chip (D = \u_core.u_debounce.btn_sync_1, Q = \u_core.u_debounce.btn_out).
+Adding EN signal on $flatten\u_core.\u_counter.$procdff$196 ($adff) from module doorbell_chip (D = $flatten\u_core.\u_counter.$procmux$123_Y, Q = \u_core.u_counter.count).
+
+6.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 3 unused cells and 3 unused wires.
+<suppressed ~4 debug messages>
+
+6.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+<suppressed ~7 debug messages>
+
+6.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:252:make_patterns_logic$219: { $auto$opt_dff.cc:234:make_patterns_logic$212 $auto$opt_dff.cc:234:make_patterns_logic$214 $auto$opt_dff.cc:234:make_patterns_logic$216 }
+    New input vector for $reduce_and cell $auto$opt_dff.cc:252:make_patterns_logic$228: { $auto$opt_dff.cc:234:make_patterns_logic$223 $auto$opt_dff.cc:234:make_patterns_logic$225 }
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 2 changes.
+
+6.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 90 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Computing hashes of 88 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+6.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+6.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 0 changes.
+
+6.9.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 88 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.9.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.9.23. Finished fast OPT passes. (There is nothing left to do.)
+
+6.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 28 address bits (of 32) from memory init port doorbell_chip.$flatten\u_core.\u_decoder.$auto$mem.cc:351:emit$51 ($flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49).
+Removed top 1 bits (of 2) from port B of cell doorbell_chip.$auto$opt_dff.cc:235:make_patterns_logic$240 ($ne).
+Removed top 1 bits (of 3) from port B of cell doorbell_chip.$auto$opt_dff.cc:235:make_patterns_logic$226 ($ne).
+Removed top 1 bits (of 2) from port B of cell doorbell_chip.$auto$opt_dff.cc:235:make_patterns_logic$224 ($ne).
+Removed top 3 bits (of 4) from port B of cell doorbell_chip.$flatten\u_core.\u_counter.$add$rtl/doorbell.v:229$15 ($add).
+
+6.11. Executing PEEPOPT pass (run peephole optimizers).
+
+6.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module doorbell_chip:
+  creating $macc model for $flatten\u_core.\u_counter.$add$rtl/doorbell.v:229$15 ($add).
+  creating $macc model for $flatten\u_core.\u_blink.$add$rtl/doorbell.v:324$40 ($add).
+  creating $macc model for $flatten\u_core.\u_debounce.$add$rtl/doorbell.v:153$47 ($add).
+  creating $macc model for $flatten\u_core.\u_sleep.$add$rtl/doorbell.v:385$36 ($add).
+  creating $alu model for $macc $flatten\u_core.\u_sleep.$add$rtl/doorbell.v:385$36.
+  creating $alu model for $macc $flatten\u_core.\u_debounce.$add$rtl/doorbell.v:153$47.
+  creating $alu model for $macc $flatten\u_core.\u_blink.$add$rtl/doorbell.v:324$40.
+  creating $alu model for $macc $flatten\u_core.\u_counter.$add$rtl/doorbell.v:229$15.
+  creating $alu cell for $flatten\u_core.\u_counter.$add$rtl/doorbell.v:229$15: $auto$alumacc.cc:512:replace_alu$247
+  creating $alu cell for $flatten\u_core.\u_blink.$add$rtl/doorbell.v:324$40: $auto$alumacc.cc:512:replace_alu$250
+  creating $alu cell for $flatten\u_core.\u_debounce.$add$rtl/doorbell.v:153$47: $auto$alumacc.cc:512:replace_alu$253
+  creating $alu cell for $flatten\u_core.\u_sleep.$add$rtl/doorbell.v:385$36: $auto$alumacc.cc:512:replace_alu$256
+  created 4 $alu and 0 $macc cells.
+
+6.14. Executing SHARE pass (SAT-based resource sharing).
+
+6.15. Executing OPT pass (performing simple optimizations).
+
+6.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 88 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 0 changes.
+
+6.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 88 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.15.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.16. Executing MEMORY pass.
+
+6.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49'[0] in module `\doorbell_chip': no output FF found.
+Checking read port address `$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49'[0] in module `\doorbell_chip': address FF has async set and/or reset, not supported.
+
+6.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.18. Executing OPT pass (performing simple optimizations).
+
+6.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+<suppressed ~18 debug messages>
+
+6.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 76 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+6.18.5. Finished fast OPT passes.
+
+6.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49 in module \doorbell_chip:
+  created 16 $dff cells and 0 static cells of width 7.
+  read interface: 0 $dff and 15 $mux cells.
+  write interface: 0 write mux blocks.
+
+6.20. Executing OPT pass (performing simple optimizations).
+
+6.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+<suppressed ~5 debug messages>
+
+6.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 86 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Computing hashes of 85 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+6.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+6.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][3][1]$285:
+      Old ports: A=7'1011011, B=7'1001111, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272
+      New ports: A=2'10, B=2'01, Y={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [2] }
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [6:5] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [1:0] } = 5'10111
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][3][0]$282:
+      Old ports: A=7'0111111, B=7'0000110, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271
+      New ports: A=1'1, B=1'0, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0]
+      New connections: $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [6:1] = { 1'0 $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0] 2'11 }
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][3][4]$294:
+      Old ports: A=7'1111111, B=7'1101111, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$a$277
+      New ports: A=1'1, B=1'0, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$a$277 [4]
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$a$277 [6:5] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$a$277 [3:0] } = 6'111111
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][3][2]$288:
+      Old ports: A=7'1100110, B=7'1101101, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274
+      New ports: A=2'10, B=2'01, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274 [1:0]
+      New connections: $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274 [6:2] = { 3'110 $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274 [0] 1'1 }
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][3][3]$291:
+      Old ports: A=7'1111101, B=7'0000111, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275
+      New ports: A=2'10, B=2'01, Y={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [1] }
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [6:4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [2] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [0] } = { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] 2'11 }
+  Optimizing cells in module \doorbell_chip.
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$276:
+      Old ports: A=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$a$277, B=7'0000000, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268
+      New ports: A={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][2]$a$277 [4] 1'1 }, B=2'00, Y={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] }
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [6:5] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [3:1] } = { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] }
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$273:
+      Old ports: A=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274, B=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$b$266
+      New ports: A={ 2'10 $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$a$274 [1:0] }, B={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][1]$b$275 [1] 1'1 }, Y={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$b$266 [5:3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$b$266 [1:0] }
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$b$266 [6] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$b$266 [2] } = { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$b$266 [5] 1'1 }
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$270:
+      Old ports: A=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271, B=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265
+      New ports: A={ 1'0 $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0] 1'1 $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$a$271 [0] }, B={ 2'10 $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][2][0]$b$272 [2] 1'1 }, Y={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265 [6:4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265 [2] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265 [0] }
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265 [3] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265 [1] } = { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][0]$a$265 [0] 1'1 }
+  Optimizing cells in module \doorbell_chip.
+    Consolidated identical input bits for $mux cell $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$267:
+      Old ports: A=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268, B=7'0000000, Y=$memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263
+      New ports: A={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][1][1]$a$268 [0] }, B=2'00, Y={ $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [4] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [0] }
+      New connections: { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [6:5] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [3:1] } = { $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [0] $memory$flatten\u_core.\u_decoder.$auto$proc_rom.cc:155:do_switch$49$rdmux[0][0][0]$b$263 [0] }
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 9 changes.
+
+6.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 85 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Computing hashes of 82 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+6.20.6. Executing OPT_SHARE pass.
+
+6.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 0 unused cells and 24 unused wires.
+<suppressed ~1 debug messages>
+
+6.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+<suppressed ~1 debug messages>
+
+6.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \doorbell_chip..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+6.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \doorbell_chip.
+Performed a total of 0 changes.
+
+6.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 82 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Removed a total of 0 cells.
+
+6.20.14. Executing OPT_SHARE pass.
+
+6.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+
+6.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+
+6.20.18. Finished fast OPT passes. (There is nothing left to do.)
+
+6.21. Executing TECHMAP pass (map to technology primitives).
+
+6.21.1. Executing Verilog-2005 frontend: /home/nithinvdt001/Crucible/tools/yosys/0.63.0/yosys/libexec/../share/yosys/techmap.v
+Parsing Verilog input from `/home/nithinvdt001/Crucible/tools/yosys/0.63.0/yosys/libexec/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.21.2. Continuing TECHMAP pass.
+Using template $paramod$79aa992f2eb7f354d4aaf651790713cf239111fa\_90_alu for cells of type $alu.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using template $paramod$ce0ec84be7047712840b0952f343ee9e63ef75d1\_90_alu for cells of type $alu.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010100 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1073 debug messages>
+
+6.22. Executing OPT pass (performing simple optimizations).
+
+6.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module doorbell_chip.
+<suppressed ~653 debug messages>
+
+6.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\doorbell_chip'.
+Computing hashes of 616 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+Computing hashes of 544 cells of `\doorbell_chip'.
+Finding duplicate cells in `\doorbell_chip'.
+<suppressed ~216 debug messages>
+Removed a total of 72 cells.
+
+6.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 15 unused cells and 376 unused wires.
+<suppressed ~16 debug messages>
+
+6.22.5. Finished fast OPT passes.
+
+6.23. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `doorbell_chip'. Setting top module to doorbell_chip.
+
+6.23.1. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+
+6.23.2. Analyzing design hierarchy..
+Top module:  \doorbell_chip
+Removed 0 unused modules.
+
+6.24. Printing statistics.
+
+=== doorbell_chip ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      212 wires
+      658 wire bits
+       55 public wires
+      145 public wire bits
+        6 ports
+       12 port bits
+      529 cells
+      101   $_AND_
+       51   $_DFFE_PN0P_
+       23   $_DFF_PN0_
+      130   $_MUX_
+       69   $_NOT_
+       70   $_OR_
+       61   $_XOR_
+        7   $scopeinfo
+        1   INVR00
+        9   OTPD01
+        2   PVDD01
+        2   PVSS01
+        3   SPAD00
+
+6.25. Executing CHECK pass (checking for obvious problems).
+Checking module doorbell_chip...
+Found and reported 0 problems.
+
+7. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFL11 (noninv, pins=4, area=5.33) is a direct match for cell type $_DFF_P_.
+  cell DFCL11 (noninv, pins=5, area=7.33) is a direct match for cell type $_DFF_PN0_.
+  cell DFPR11 (noninv, pins=5, area=7.33) is a direct match for cell type $_DFF_PN1_.
+  cell DFPC11 (noninv, pins=6, area=8.33) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \DFFL11 _DFF_P_ (.C( C), .D( D), .Q( Q), .QB(~Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \DFCL11 _DFF_PN0_ (.C( C), .CLR( R), .D( D), .Q( Q), .QB(~Q));
+    \DFPR11 _DFF_PN1_ (.C( C), .D( D), .PRB( R), .Q( Q), .QB(~Q));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFPC11 _DFFSR_PNN_ (.C( C), .CLR( R), .D( D), .PRB( S), .Q( Q), .QB(~Q));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+7.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\doorbell_chip':
+  mapped 74 $_DFF_PN0_ cells to \DFCL11 cells.
+
+8. Executing ABC pass (technology mapping using ABC).
+
+8.1. Extracting gate netlist of module `\doorbell_chip' to `<abc-temp-dir>/input.blif'..
+
+8.1.1. Executed ABC.
+Extracted 482 gates and 620 wires to a netlist network with 136 inputs and 76 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  1 2026 04:06:44)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /mnt/c/Users/Admin/OneDrive/Documents/New project/doorbell_v3_clean_rst_20261127/libs/cp8d_core_max.clean.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TRAN00".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV01".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV00".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF01".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFCL11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTPR11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFL11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTPC11".
+ABC: Scl_LibertyReadGenlib() skipped cell "DC2400" with more than two outputs.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFPR11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTCH11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTCL11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFPC11".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF00".
+ABC: Library "cp8d_core_max" from "/mnt/c/Users/Admin/OneDrive/Documents/New project/doorbell_v3_clean_rst_20261127/libs/cp8d_core_max.clean.lib" has 45 cells (14 skipped: 8 seq; 5 tri-state; 0 no func; 0 dont_use; 0 with 2 outputs; 1 with 3+ outputs).  Time =     0.11 sec
+ABC: Memory =    2.94 MB. Time =     0.11 sec
+ABC: Warning: Detected 3 multi-output cells (for example, "ADR100").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime -o -D 200000 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf -D 200000 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+8.1.2. Re-integrating ABC results.
+ABC RESULTS:            ADNR00 cells:       24
+ABC RESULTS:            AND200 cells:       16
+ABC RESULTS:            AND300 cells:       14
+ABC RESULTS:            AND400 cells:        9
+ABC RESULTS:            AND500 cells:        8
+ABC RESULTS:            AOI400 cells:        5
+ABC RESULTS:            INVR00 cells:       23
+ABC RESULTS:            MX2100 cells:       10
+ABC RESULTS:            NND200 cells:       29
+ABC RESULTS:            NND300 cells:        9
+ABC RESULTS:            NND400 cells:        4
+ABC RESULTS:            NND500 cells:        1
+ABC RESULTS:            NND600 cells:        1
+ABC RESULTS:            NOR200 cells:       63
+ABC RESULTS:            NOR300 cells:       23
+ABC RESULTS:            NOR400 cells:       11
+ABC RESULTS:            NOR500 cells:        1
+ABC RESULTS:            NOR600 cells:        1
+ABC RESULTS:            OR2100 cells:        6
+ABC RESULTS:            OR3100 cells:        1
+ABC RESULTS:            OR4100 cells:        1
+ABC RESULTS:            ORND00 cells:       31
+ABC RESULTS:            XNR200 cells:        5
+ABC RESULTS:            XOR200 cells:        2
+ABC RESULTS:        internal signals:      408
+ABC RESULTS:           input signals:      136
+ABC RESULTS:          output signals:       76
+Removing temp directory.
+Removing global temp directory.
+
+9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 0 unused cells and 421 unused wires.
+<suppressed ~6 debug messages>
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing HILOMAP pass (mapping to constant drivers).
+
+12. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+13. Executing INSBUF pass (insert buffer cells for connected wires).
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2652: \u_core.u_sleep.state -> $flatten\u_core.\u_sleep.$procmux$101.S[0]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2653: \u_core.u_counter.count[1] -> $auto$alumacc.cc:512:replace_alu$247.P[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2654: \u_core.u_counter.count[2] -> $auto$alumacc.cc:512:replace_alu$247.P[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2655: \u_core.u_counter.count[3] -> $auto$alumacc.cc:512:replace_alu$247.P[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2656: \u_core.u_blink.cnt[1] -> $auto$alumacc.cc:512:replace_alu$250.P[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2657: \u_core.u_blink.cnt[2] -> $auto$alumacc.cc:512:replace_alu$250.P[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2658: \u_core.u_blink.cnt[3] -> $auto$alumacc.cc:512:replace_alu$250.P[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2659: \u_core.u_blink.cnt[4] -> $auto$alumacc.cc:512:replace_alu$250.P[4]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2660: \u_core.u_blink.cnt[5] -> $auto$alumacc.cc:512:replace_alu$250.P[5]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2661: \u_core.u_blink.cnt[6] -> $auto$alumacc.cc:512:replace_alu$250.P[6]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2662: \u_core.u_blink.cnt[7] -> $auto$alumacc.cc:512:replace_alu$250.P[7]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2663: \u_core.u_blink.cnt[8] -> $auto$alumacc.cc:512:replace_alu$250.P[8]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2664: \u_core.u_blink.cnt[9] -> $auto$alumacc.cc:512:replace_alu$250.P[9]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2665: \u_core.u_blink.cnt[10] -> $auto$alumacc.cc:512:replace_alu$250.P[10]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2666: \u_core.u_blink.cnt[11] -> $auto$alumacc.cc:512:replace_alu$250.P[11]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2667: \u_core.u_blink.cnt[12] -> $auto$alumacc.cc:512:replace_alu$250.P[12]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2668: \u_core.u_blink.cnt[13] -> $auto$alumacc.cc:512:replace_alu$250.P[13]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2669: \u_core.u_blink.cnt[14] -> $auto$alumacc.cc:512:replace_alu$250.P[14]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2670: \u_core.u_blink.cnt[15] -> $auto$alumacc.cc:512:replace_alu$250.P[15]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2671: \u_core.u_blink.cnt[16] -> $auto$alumacc.cc:512:replace_alu$250.P[16]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2672: \u_core.u_blink.cnt[17] -> $auto$alumacc.cc:512:replace_alu$250.P[17]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2673: \u_core.u_blink.cnt[18] -> $auto$alumacc.cc:512:replace_alu$250.P[18]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2674: \u_core.u_blink.cnt[19] -> $auto$alumacc.cc:512:replace_alu$250.P[19]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2675: \u_core.u_debounce.stable_cnt[1] -> $auto$alumacc.cc:512:replace_alu$253.P[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2676: \u_core.u_debounce.stable_cnt[2] -> $auto$alumacc.cc:512:replace_alu$253.P[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2677: \u_core.u_debounce.stable_cnt[3] -> $auto$alumacc.cc:512:replace_alu$253.P[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2678: \u_core.u_debounce.stable_cnt[4] -> $auto$alumacc.cc:512:replace_alu$253.P[4]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2679: \u_core.u_debounce.stable_cnt[5] -> $auto$alumacc.cc:512:replace_alu$253.P[5]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2680: \u_core.u_debounce.stable_cnt[6] -> $auto$alumacc.cc:512:replace_alu$253.P[6]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2681: \u_core.u_debounce.stable_cnt[7] -> $auto$alumacc.cc:512:replace_alu$253.P[7]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2682: \u_core.u_debounce.stable_cnt[8] -> $auto$alumacc.cc:512:replace_alu$253.P[8]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2683: \u_core.u_debounce.stable_cnt[9] -> $auto$alumacc.cc:512:replace_alu$253.P[9]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2684: \u_core.u_debounce.stable_cnt[10] -> $auto$alumacc.cc:512:replace_alu$253.P[10]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2685: \u_core.u_debounce.stable_cnt[11] -> $auto$alumacc.cc:512:replace_alu$253.P[11]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2686: \u_core.u_debounce.stable_cnt[12] -> $auto$alumacc.cc:512:replace_alu$253.P[12]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2687: \u_core.u_debounce.stable_cnt[13] -> $auto$alumacc.cc:512:replace_alu$253.P[13]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2688: \u_core.u_debounce.stable_cnt[14] -> $auto$alumacc.cc:512:replace_alu$253.P[14]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2689: \u_core.u_debounce.stable_cnt[15] -> $auto$alumacc.cc:512:replace_alu$253.P[15]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2690: \u_core.u_sleep.idle_cnt[1] -> $auto$alumacc.cc:512:replace_alu$256.P[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2691: \u_core.u_sleep.idle_cnt[2] -> $auto$alumacc.cc:512:replace_alu$256.P[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2692: \u_core.u_sleep.idle_cnt[3] -> $auto$alumacc.cc:512:replace_alu$256.P[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2693: \u_core.u_sleep.idle_cnt[4] -> $auto$alumacc.cc:512:replace_alu$256.P[4]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2694: \u_core.u_sleep.idle_cnt[5] -> $auto$alumacc.cc:512:replace_alu$256.P[5]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2695: \u_core.u_sleep.idle_cnt[6] -> $auto$alumacc.cc:512:replace_alu$256.P[6]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2696: \u_core.u_sleep.idle_cnt[7] -> $auto$alumacc.cc:512:replace_alu$256.P[7]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2697: \u_core.u_sleep.idle_cnt[8] -> $auto$alumacc.cc:512:replace_alu$256.P[8]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2698: \u_core.u_sleep.idle_cnt[9] -> $auto$alumacc.cc:512:replace_alu$256.P[9]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2699: \u_core.u_sleep.idle_cnt[10] -> $auto$alumacc.cc:512:replace_alu$256.P[10]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2700: \u_core.u_sleep.idle_cnt[11] -> $auto$alumacc.cc:512:replace_alu$256.P[11]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2701: \u_core.u_sleep.idle_cnt[12] -> $auto$alumacc.cc:512:replace_alu$256.P[12]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2702: \u_core.u_sleep.idle_cnt[13] -> $auto$alumacc.cc:512:replace_alu$256.P[13]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2703: \u_core.u_sleep.idle_cnt[14] -> $auto$alumacc.cc:512:replace_alu$256.P[14]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2704: \u_core.u_sleep.idle_cnt[15] -> $auto$alumacc.cc:512:replace_alu$256.P[15]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2705: \u_core.u_sleep.idle_cnt[16] -> $auto$alumacc.cc:512:replace_alu$256.P[16]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2706: \u_core.u_sleep.idle_cnt[17] -> $auto$alumacc.cc:512:replace_alu$256.P[17]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2707: \u_core.u_sleep.idle_cnt[18] -> $auto$alumacc.cc:512:replace_alu$256.P[18]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2708: \u_core.u_sleep.idle_cnt[19] -> $auto$alumacc.cc:512:replace_alu$256.P[19]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2709: \u_core.u_sleep.idle_cnt[20] -> $auto$alumacc.cc:512:replace_alu$256.P[20]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2710: \u_core.u_sleep.idle_cnt[21] -> $auto$alumacc.cc:512:replace_alu$256.P[21]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2711: \u_core.u_sleep.idle_cnt[22] -> $auto$alumacc.cc:512:replace_alu$256.P[22]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2712: \u_core.u_sleep.idle_cnt[23] -> $auto$alumacc.cc:512:replace_alu$256.P[23]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2713: \rst_sync_1 -> \u_core.u_debounce.rst_n
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2714: \btn_c -> \u_core.u_debounce.btn_in
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2715: \rst_sync_1 -> \u_core.u_blink.rst_n
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2716: \clk_c -> \u_core.u_blink.clk
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2717: \seg_c[0] -> \u_core.u_decoder.seg_out[0]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2718: \seg_c[1] -> \u_core.u_decoder.seg_out[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2719: \seg_c[2] -> \u_core.u_decoder.seg_out[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2720: \seg_c[3] -> \u_core.u_decoder.seg_out[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2721: \seg_c[4] -> \u_core.u_decoder.seg_out[4]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2722: \seg_c[5] -> \u_core.u_decoder.seg_out[5]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2723: \seg_c[6] -> \u_core.u_decoder.seg_out[6]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2724: \u_core.u_counter.count[0] -> \u_core.u_decoder.bcd_in[0]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2725: \u_core.u_counter.count[1] -> \u_core.u_decoder.bcd_in[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2726: \u_core.u_counter.count[2] -> \u_core.u_decoder.bcd_in[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2727: \u_core.u_counter.count[3] -> \u_core.u_decoder.bcd_in[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2728: \clk_c -> \u_core.u_edge.clk
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2729: \rst_sync_1 -> \u_core.u_edge.rst_n
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2730: \u_core.u_debounce.btn_out -> \u_core.u_edge.sig_in
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2731: \clk_c -> \u_core.u_debounce.clk
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2732: \rst_sync_1 -> \u_core.u_sleep.rst_n
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2733: \clk_c -> \u_core.u_sleep.clk
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2734: \rst_sync_1 -> \u_core.u_counter.rst_n
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2735: \clk_c -> \u_core.u_counter.clk
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2736: \u_core.u_counter.count[0] -> \u_core.count_val[0]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2737: \u_core.u_counter.count[1] -> \u_core.count_val[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2738: \u_core.u_counter.count[2] -> \u_core.count_val[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2739: \u_core.u_counter.count[3] -> \u_core.count_val[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2740: \u_core.u_debounce.btn_out -> \u_core.btn_clean
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2741: \u_core.u_sleep.sleep_out -> \u_core.sleep_led
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2742: \u_core.u_blink.pulse -> \u_core.led_blink
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2743: \seg_c[0] -> \u_core.seg_out[0]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2744: \seg_c[1] -> \u_core.seg_out[1]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2745: \seg_c[2] -> \u_core.seg_out[2]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2746: \seg_c[3] -> \u_core.seg_out[3]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2747: \seg_c[4] -> \u_core.seg_out[4]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2748: \seg_c[5] -> \u_core.seg_out[5]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2749: \seg_c[6] -> \u_core.seg_out[6]
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2750: \btn_c -> \u_core.btn_in
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2751: \rst_sync_1 -> \u_core.rst_n
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2752: \clk_c -> \u_core.clk
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2753: $auto$hilomap.cc:47:hilomap_worker$2650 -> \rst_zero
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2754: \u_core.u_sleep.sleep_out -> \sleep_c
+Add doorbell_chip/$auto$insbuf.cc:97:execute$2755: \u_core.u_blink.pulse -> \led_c
+
+14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \doorbell_chip..
+Removed 111 unused cells and 104 unused wires.
+<suppressed ~155 debug messages>
+
+15. Executing CHECK pass (checking for obvious problems).
+Checking module doorbell_chip...
+Found and reported 0 problems.
+
+16. Printing statistics.
+
+=== doorbell_chip ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      457        - wires
+      463        - wire bits
+       91        - public wires
+       97        - public wire bits
+        6        - ports
+       12        - port bits
+      390  3498.76 cells
+       24    55.92   ADNR00
+       16       32   AND200
+       14    32.62   AND300
+        9    24.03   AND400
+        8       24   AND500
+        5    13.35   AOI400
+       74   542.42   DFCL11
+       24       24   INVR00
+       10     26.7   MX2100
+       29    38.57   NND200
+        9       18   NND300
+        4     9.32   NND400
+        1     2.67   NND500
+        1     4.33   NND600
+       63    83.79   NOR200
+       23       46   NOR300
+       11    29.37   NOR400
+        1        4   NOR500
+        1     5.37   NOR600
+        6    10.02   OR2100
+        1     2.33   OR3100
+        1     3.33   OR4100
+       31       62   ORND00
+        9  1382.04   OTPD01
+        2      250   PVDD01
+        2      250   PVSS01
+        3   496.56   SPAD00
+        1     0.33   VSSCON
+        5    18.35   XNR200
+        2     7.34   XOR200
+
+   Chip area for module '\doorbell_chip': 3498.760000
+     of which used for sequential elements: 542.420000 (15.50%)
+
+17. Executing Verilog backend.
+Dumping module `\doorbell_chip'.
+
+End of script. Logfile hash: 4b03f3807e, time: 2.93s, user: 0.78s, system: 0.29s, MEM: 24.00 MB peak
+Yosys 0.63+188 (git sha1 cede13a74, clang++ 18.1.8 -fPIC -O3)
+Time spent: 31% 1x abc (0 sec), 9% 4x read_liberty (0 sec), ...
+

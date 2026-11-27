@@ -39,3 +39,4 @@ for cat, items in sorted(cats.items(), key=lambda kv: -len(kv[1])):
     bins = Counter((int(x // 100) * 100, int(y // 100) * 100) for _, x, y, _ in items)
     print("  top 100um bins (x,y):", bins.most_common(4))
     print("  sample:", items[0][3])
+

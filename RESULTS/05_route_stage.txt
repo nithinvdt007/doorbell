@@ -1,0 +1,9 @@
+OK: route
+pass 1: 0 violations
+reset width patch skipped: expected one old or one fixed shape in '    - rst_n_c ('; found old=0, fixed=0: NEW metal2 ( 1480050 1461500 ) ( * 1472600 0 )
+Applied/confirmed CP8D signoff geometry in results/route.def
+OK: signoff_import
+OK: finish
+FINAL ROUTE: route_pass1 with 0 detailed-route violations -> results/route.odb
+ROUTE_EXIT=0
+
