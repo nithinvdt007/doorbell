@@ -1,0 +1,45 @@
+=== VDD real-pad static IR + EM ===
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0015] Reading location of sources from: scripts/power_pads_vdd.loc.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 1.93e-02 W
+Supply voltage   : 5.00e+00 V
+Worstcase voltage: 5.00e+00 V
+Average voltage  : 5.00e+00 V
+Average IR drop  : 9.65e-04 V
+Worstcase IR drop: 2.64e-03 V
+Percentage drop  : 0.05 %
+######################################
+########## EM analysis ###############
+Net                : VDD
+Corner             : default
+Maximum current    : 2.45e-03 A
+Average current    : 4.25e-05 A
+Number of resistors: 5427
+######################################
+OK VDD
+=== GROUND real-pad static IR + EM ===
+[INFO PSM-0040] All shapes on net GROUND are connected.
+[INFO PSM-0015] Reading location of sources from: scripts/power_pads_gnd.loc.
+########## IR report #################
+Net              : GROUND
+Corner           : default
+Total power      : 1.93e-02 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 9.35e-03 V
+Average voltage  : 2.84e-03 V
+Average IR drop  : 2.84e-03 V
+Worstcase IR drop: 9.35e-03 V
+Percentage drop  : 0.19 %
+######################################
+########## EM analysis ###############
+Net                : GROUND
+Corner             : default
+Maximum current    : 2.04e-03 A
+Average current    : 8.53e-05 A
+Number of resistors: 5174
+######################################
+OK GROUND
+IR_DONE

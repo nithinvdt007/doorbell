@@ -1,0 +1,16 @@
+/logs/
+/results/
+/verify/
+/gds/
+/libs/*.clean.lib
+/libs/pads_cp8d_snapped.lef
+/sim/logs/
+/sim/work/
+*.gds
+*.vcd
+*.odb
+*.spef
+*.sdf
+*.lyrdb
+__pycache__/
+*.pyc

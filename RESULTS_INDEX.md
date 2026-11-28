@@ -1,28 +1,39 @@
-# Results index — RTL to GDS (3 mm, reset-sync candidate)
+# Results index
 
-Trimmed logs, one file per stage. Full scripts are in `scripts/`, full commands in `FLOW.md`. GDS and raw VCD files are omitted; rendered SVG summaries are in `images/.
+## Core RTL-to-GDS stages
 
-| File | Stage / meaning |
+| File | Meaning |
 |---|---|
-| `01_synth.txt` | Yosys synthesis summary and cell count |
-| `02_floorplan.txt` | Core area, pad ring, PDN setup, floorplan complete |
-| `03_placement.txt` | Placement completion |
-| `04_cts.txt` | CTS completion |
-| `05_route_stage.txt` | Stage wrapper: route pass, retries, signoff patch/ODB import |
-| `06_route_detail.txt` | OpenROAD detailed-route convergence and runtime |
-| `07_signoff_import.txt` | Patched DEF → ODB import |
-| `08_finish.txt` | Power checks and netlist export |
-| `09_gds.txt` | Streamout and frame merge |
-| `10_drc_log.txt` | KLayout SCL DRC |
-| `11_lvs_log.txt` | KLayout SCL LVS |
-| `12_status.txt` | Final DRC/LVS status |
-| `13_power_check.txt` | Power grid check/analysis log |
-| `14_sta.txt` | Post-route STA result (assumed wire RC) |
-| `15_spef.txt` | OpenROAD RCX SPEF stats (zero capacitance) |
-| `16_rtl_sim.txt` | Chip-level RTL sim (count 1, 2, 3) |
-| `17_gate_sim.txt` | Routed gate-level sim (matches RTL with sim-only flop delay) |
+| RESULTS/01_synth.txt | Yosys mapping and cell area |
+| RESULTS/02_floorplan.txt | Core, pad ring, PDN and floorplan |
+| RESULTS/03_placement.txt | Placement |
+| RESULTS/04_cts.txt | Clock-tree synthesis |
+| RESULTS/05_route_stage.txt | Routing/retry summary |
+| RESULTS/06_route_detail.txt | Detailed-route convergence |
+| RESULTS/07_signoff_import.txt | DEF-to-ODB import |
+| RESULTS/08_finish.txt | Power connections and netlist export |
+| RESULTS/09_gds.txt | Streamout/frame merge summary |
+| RESULTS/10_drc_log.txt | KLayout DRC |
+| RESULTS/11_lvs_log.txt | KLayout LVS |
+| RESULTS/12_status.txt | Recorded DRC/LVS status |
+| RESULTS/13_power_check.txt | Power-grid connectivity |
+| RESULTS/14_sta.txt | Baseline fast/slow setup and hold |
+| RESULTS/15_spef.txt | OpenRCX SPEF; zero wire capacitance |
+| RESULTS/16_rtl_sim.txt | RTL simulation summary |
+| RESULTS/17_gate_sim.txt | Directed gate simulation summary |
 
-Final signoff: DRC 0, LVS match, power connected. Open items: see `OPEN_ITEMS.md`.
+## RC, SDF, and static IR/EM diagnostics
 
-Rendered timing and simulation summaries: images/.
+| File | Meaning |
+|---|---|
+| reports/sta_rc_1.0.log | First-order set_layer_rc sweep at 1.0x |
+| reports/sta_rc_1.5.log | First-order set_layer_rc sweep at 1.5x |
+| reports/sta_rc_2.0.log | First-order set_layer_rc sweep at 2.0x |
+| reports/write_sdf_real.log | SDF generation log using estimated RC |
+| reports/ir_real_em.log | Static grid/EM summary using estimated layer R |
+| reports/power_grid_check.log | VDD/GROUND connectivity check |
+| reports/drc_summary.txt | Recorded DRC result |
+| reports/klayout_lvs.log | Recorded LVS result |
+| reports/status.txt | Recorded final DRC/LVS status |
 
+The point-level EM current tables and generated SDF remain generated local artifacts. Review SCL_RC_AND_CHECKLIST.md and OPEN_ITEMS.md before interpreting results as signoff.

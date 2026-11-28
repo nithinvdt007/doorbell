@@ -1,0 +1,81 @@
+SCL_RC scale=1.00 m1_r=4.11765e-05 m1_c=0.0002459 m2_r=2e-05 m2_c=0.000222 via_r=0.0003375
+[INFO GRT-0020] Min routing layer: metal1
+[INFO GRT-0021] Max routing layer: metal2
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer metal1  Track-Pitch = 3.7000  line-2-Via Pitch: 3.3000
+[INFO GRT-0088] Layer metal2  Track-Pitch = 3.9000  line-2-Via Pitch: 3.6500
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 13267
+[INFO GRT-0019] Found 59 clock nets.
+[INFO GRT-0001] Minimum degree: 0
+[INFO GRT-0002] Maximum degree: 0
+Design statistics
+Nets:                498
+Special nets:        2
+Routing layers:      2
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal      40500         40500          0.00%
+metal2     Vertical        33985         33985          0.00%
+---------------------------------------------------------------
+
+Stage 1: Pattern routing.
+Routing statistics
+Wire length:           29475
+Total via count:       1634
+Total congestion:      0
+Min resource:          0
+Bottleneck:            (1, 0, 4)
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+metal1           40500          1283            3.17%             0 /  0 /  0
+metal2           33985          1012            2.98%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            74485          2295            3.08%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 182403 um
+[INFO GRT-0014] Routed nets: 435
+[INFO GRT-0303] Global routing runtime = 00:00:00
+[WARNING STA-1555] liberty name/filename $HOME/PDKs/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_core_max.lib not found.
+[WARNING STA-1555] liberty name/filename $HOME/PDKs/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_pads_max.lib not found.
+[WARNING STA-1555] liberty name/filename $HOME/PDKs/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_core_min.lib not found.
+[WARNING STA-1555] liberty name/filename $HOME/PDKs/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_pads_min.lib not found.
+=== RC_SCALE 1.0 slow_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_713_/D (DFCL11)                      209.54   86.37  123.17 (MET)
+
+=== RC_SCALE 1.0 slow_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_716_/D (DFCL11)                       10.49   13.50    3.01 (MET)
+
+=== RC_SCALE 1.0 fast_scene SETUP
+max_delay/setup group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_713_/D (DFCL11)                      209.54   86.37  123.17 (MET)
+
+=== RC_SCALE 1.0 fast_scene HOLD
+min_delay/hold group clk
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+_716_/D (DFCL11)                       10.49   13.50    3.01 (MET)
+
+SCL_RC_DONE
